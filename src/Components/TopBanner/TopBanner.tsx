@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
   textContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     width: '60%',
-    height: '100vh',
+    height: 'auto',
     padding: '10px 30px',
     zIndex: 9,
     [theme.breakpoints.down('sm')]: {
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     width: '40%',
-    height: '800px',
+    height: 'auto',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       height: 'auto',
@@ -78,11 +78,11 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     width: '100%',
-    height: '95%',
-    marginTop: theme.spacing(4),
-    marginLeft: '-100px',
+    height: 'auto',
+    marginTop: theme.spacing(2),
+    marginLeft: '0px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '-130px',
+      marginTop: '-90px',
       marginLeft: '-60px',
     },
   },
@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
     display: 'flex',
     marginLeft: theme.spacing(3),
-    marginBottom: theme.spacing(10),
+    marginBottom: theme.spacing(5),
     flexDirection: 'row',
     [theme.breakpoints.down('sm')]: {
       marginLeft: theme.spacing(0),
@@ -168,7 +168,7 @@ const TopBanner: React.FC = () => {
         blur={1}
         bgImage={`${Stadium}`}
         bgImageAlt="the cat"
-        strength={1500}
+        strength={750}
       >
         <Grid className={classes.main}>
           <Grid className={classes.textContainer}>
