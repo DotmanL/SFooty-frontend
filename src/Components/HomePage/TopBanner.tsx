@@ -149,15 +149,6 @@ const useStyles = makeStyles((theme) => ({
       padding: '0px',
     },
   },
-  secondBanner: {
-    height: '700px',
-    display: 'flex',
-    background: 'white',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: theme.spacing(2),
-  },
 }));
 
 const TopBanner: React.FC = () => {
@@ -168,7 +159,7 @@ const TopBanner: React.FC = () => {
         blur={1}
         bgImage={`${Stadium}`}
         bgImageAlt="the cat"
-        strength={750}
+        strength={500}
       >
         <Grid className={classes.main}>
           <Grid className={classes.textContainer}>
@@ -196,9 +187,6 @@ const TopBanner: React.FC = () => {
               alt="cr7"
             />
           </Grid>
-        </Grid>
-        <Grid className={classes.secondBanner}>
-          <Typography>what we do</Typography>
         </Grid>
       </Parallax>
     </>

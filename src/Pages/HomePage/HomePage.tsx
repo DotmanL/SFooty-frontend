@@ -1,7 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import TopBanner from '../../Components/TopBanner/TopBanner';
+import TopBanner from '../../Components/HomePage/TopBanner';
+import SecondBanner from '../../Components/HomePage/SecondBanner';
+import ThirdBanner from '../../Components/HomePage/ThirdBanner';
 // import { NavBar } from '../../Components/Shared/NavBar';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,6 +17,8 @@ const HomePage: React.FC = () => {
   return (
     <Grid className={classes.root}>
       <TopBanner />
+      <SecondBanner />
+      <ThirdBanner />
     </Grid>
   );
 };
