@@ -1,0 +1,4 @@
+# ignore typechain generated files
+node_modules/
+build/
+src/modules/api/types.ts
