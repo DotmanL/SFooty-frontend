@@ -3,150 +3,219 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import Image from 'material-ui-image';
-import { Parallax } from 'react-parallax';
-import crimage from './assets/crr.svg';
-import Stadium from './assets/stadium-min.jpg';
-import Logo from './assets/logo.svg';
+import BlueStar from './assets/blueStar.svg';
+import YellowStar from './assets/yellowStar.svg';
+import RedPolygon from './assets/redpolygon.svg';
+import OrangePolygon from './assets/orangePolygon.svg';
+import PL from './assets/pl.png';
+import LaLiga from './assets/laliga2.png';
+import BundesLiga from './assets/bliga.png';
+import Ligue1 from './assets/ligue1.svg';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    boxShadow: 'inset 0 0 0 2000px rgba(39,174,96, 0.4)',
-    backgroundSize: 'cover',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
+    marginTop: '90px',
     [theme.breakpoints.down('sm')]: {
       display: 'flex',
       flexDirection: 'column',
     },
   },
+  firstEmojiC: {
+    display: 'flex',
+    width: '100%',
+
+    // position: 'relative',
+    // background: 'red',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: theme.spacing(13),
+    padding: theme.spacing(2, 9),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(-2.5),
+      padding: theme.spacing(2, 0.2),
+    },
+  },
+  firstEmoji: {
+    position: 'relative',
+  },
+  image: {
+    position: 'absolute',
+    [theme.breakpoints.down('sm')]: {
+      width: '80px',
+      height: '70px',
+      fontSize: theme.spacing(1.8),
+    },
+  },
+  imagePl: {
+    position: 'absolute',
+    width: '180px',
+    height: '180px',
+    marginLeft: theme.spacing(2.3),
+    marginTop: theme.spacing(2),
+    zIndex: 5,
+    [theme.breakpoints.down('sm')]: {
+      width: '60px',
+      height: '60px',
+      marginLeft: theme.spacing(1.2),
+      marginTop: theme.spacing(1),
+    },
+  },
+  secondEmoji: {
+    position: 'relative',
+  },
+  image2: {
+    position: 'absolute',
+    marginTop: theme.spacing(-5),
+    zIndex: -5,
+    [theme.breakpoints.down('sm')]: {
+      width: '80px',
+      height: '70px',
+      marginTop: theme.spacing(-2),
+      fontSize: theme.spacing(1.8),
+    },
+  },
+  imageLl: {
+    position: 'relative',
+    width: '140px',
+    height: '180px',
+    marginLeft: theme.spacing(5.5),
+    marginTop: theme.spacing(-2.5),
+    [theme.breakpoints.down('sm')]: {
+      width: '60px',
+      height: '60px',
+      marginLeft: theme.spacing(1.2),
+      marginTop: theme.spacing(-3),
+    },
+  },
+
+  secondEmojiC: {
+    display: 'flex',
+    width: '100%',
+    // position: 'relative',
+    // background: 'red',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: theme.spacing(0.5),
+    padding: theme.spacing(2, 7),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(1),
+      padding: theme.spacing(2, 0.2),
+    },
+  },
+  thirdEmoji: {
+    position: 'relative',
+  },
+  image3: {
+    position: 'absolute',
+    marginTop: theme.spacing(8),
+    [theme.breakpoints.down('sm')]: {
+      width: '80px',
+      height: '70px',
+      marginTop: theme.spacing(3),
+      fontSize: theme.spacing(1.8),
+    },
+  },
+  imageBliga: {
+    position: 'absolute',
+    width: '150px',
+    height: '150px',
+    zIndex: 5,
+    marginLeft: theme.spacing(4),
+    marginTop: theme.spacing(12),
+    [theme.breakpoints.down('sm')]: {
+      width: '60px',
+      height: '60px',
+      marginTop: theme.spacing(3.5),
+      marginLeft: theme.spacing(1.2),
+    },
+  },
+  fourthEmoji: {
+    position: 'relative',
+  },
+  image4: {
+    position: 'absolute',
+    marginTop: theme.spacing(-5),
+    [theme.breakpoints.down('sm')]: {
+      width: '80px',
+      height: '70px',
+      zIndex: -5,
+      marginTop: theme.spacing(-2),
+    },
+  },
+  imageLigue1: {
+    position: 'relative',
+    width: '200px',
+    height: '200px',
+    marginTop: theme.spacing(0),
+    marginLeft: theme.spacing(5),
+    zIndex: 5,
+    [theme.breakpoints.down('sm')]: {
+      width: '50px',
+      height: '50px',
+      marginTop: theme.spacing(0),
+      marginLeft: theme.spacing(2),
+    },
+  },
   textContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    width: '60%',
-    height: 'auto',
-    padding: '10px 30px',
-    zIndex: 9,
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      height: 'auto',
-      padding: '5px 20px',
-    },
-  },
-  headerContainer: {
-    height: '90px',
-    width: 'auto',
-    // background: 'red',
-    marginLeft: theme.spacing(-1),
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: theme.spacing(-3),
-    },
-  },
-  appLogo: {
-    marginTop: '15px',
-    height: '70px',
-    width: '90px',
-  },
-  header: {
-    display: 'flex',
-    marginLeft: theme.spacing(0),
-    color: 'white',
-    fontSize: '48px',
-    fontFamily: 'Montserrat',
-    marginTop: theme.spacing(2),
-    fontWeight: 950,
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: theme.spacing(0),
-      marginTop: theme.spacing(3),
-    },
-  },
-  imageContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    width: '40%',
-    height: 'auto',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      height: 'auto',
-    },
-  },
-  image: {
     width: '100%',
     height: 'auto',
-    marginTop: theme.spacing(2),
-    marginLeft: '0px',
+    marginTop: theme.spacing(-8),
+    padding: '5px 30px',
     [theme.breakpoints.down('sm')]: {
-      marginTop: '-90px',
-      marginLeft: '-60px',
+      width: '100%',
+      marginTop: theme.spacing(-5),
+      height: 'auto',
+      padding: '5px 20px',
     },
   },
   introText: {
     display: 'flex',
     fontFamily: 'Montserrat',
-    fontSize: '80px',
+    fontSize: theme.spacing(6.4),
     fontWeight: 900,
-    color: 'white',
-    width: '90%',
-    marginLeft: theme.spacing(3),
-    marginTop: theme.spacing(13),
+    textAlign: 'center',
+    color: theme.palette.primary.main,
+    width: '45%',
     [theme.breakpoints.down('sm')]: {
-      width: '90%',
-      fontSize: '40px',
-      marginTop: theme.spacing(10),
-      marginLeft: theme.spacing(0),
+      width: '60%',
+      fontWeight: 700,
+      fontSize: theme.spacing(2.4),
     },
   },
-  buttonsContainer: {
-    marginTop: theme.spacing(8),
-    width: 'auto',
-    display: 'flex',
-    marginLeft: theme.spacing(3),
-    marginBottom: theme.spacing(5),
-    flexDirection: 'row',
+  subText: {
+    fontSize: theme.spacing(2.4),
+    fontWeight: 800,
+    color: 'black',
+    textAlign: 'center',
+    width: '60%',
     [theme.breakpoints.down('sm')]: {
-      marginLeft: theme.spacing(0),
-      width: '100%',
-      justifyContent: 'space-between',
-      padding: '0px 10px',
+      width: '90%',
+      fontSize: theme.spacing(1.6),
+      marginTop: theme.spacing(1.5),
     },
   },
   button: {
     color: theme.palette.background.default,
     background: theme.palette.primary.main,
-    width: '220px',
-    height: '72px',
-    fontSize: '24px',
+    width: 'auto',
+    height: 'auto',
+    padding: theme.spacing(1.5, 4),
+    fontSize: theme.spacing(1.8),
+    borderRadius: '10px',
+    marginTop: theme.spacing(2),
     '&:hover': {
       background: theme.palette.primary.main,
       opacity: 0.9,
     },
     [theme.breakpoints.down('sm')]: {
-      width: '150px',
-      height: '52px',
-      fontSize: '16px',
-      padding: '0px',
-    },
-  },
-  button2: {
-    color: theme.palette.primary.main,
-    background: theme.palette.background.default,
-    width: '220px',
-    height: '72px',
-    border: '2px solid',
-    marginLeft: '20px',
-    fontSize: '24px',
-    [theme.breakpoints.down('sm')]: {
-      width: '150px',
-      height: '52px',
-      fontSize: '16px',
-      marginLeft: '5px',
-      padding: '0px',
+      padding: theme.spacing(1, 2.5),
+      fontSize: theme.spacing(1.6),
     },
   },
 }));
@@ -155,40 +224,43 @@ const TopBanner: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <Parallax
-        blur={1}
-        bgImage={`${Stadium}`}
-        bgImageAlt="the cat"
-        strength={500}
-      >
-        <Grid className={classes.main}>
-          <Grid className={classes.textContainer}>
-            <Grid className={classes.headerContainer}>
-              <img className={classes.appLogo} src={Logo} alt="app-logo" />
-              <Typography className={classes.header} variant="h1">
-                Sporty
-              </Typography>
-            </Grid>
-            <Typography className={classes.introText} variant="h2">
-              Football is all we do at sporty
-            </Typography>
-            <Grid className={classes.buttonsContainer}>
-              <Button variant="contained" className={classes.button}>
-                Sign Up
-              </Button>
-              <Button className={classes.button2}>Log in</Button>
-            </Grid>
+      <Grid className={classes.main}>
+        <Grid className={classes.firstEmojiC}>
+          <Grid className={classes.firstEmoji}>
+            <img className={classes.image} src={RedPolygon} alt="redP" />
+            <img className={classes.imagePl} src={PL} alt="pl" />
           </Grid>
-          <Grid className={classes.imageContainer}>
-            <Image
-              color="transparent"
-              className={classes.image}
-              src={crimage}
-              alt="cr7"
-            />
+          <Grid className={classes.secondEmoji}>
+            <img className={classes.image2} src={BlueStar} alt="blueS" />
+            <img className={classes.imageLl} src={LaLiga} alt="Laliga" />
           </Grid>
         </Grid>
-      </Parallax>
+        <Grid className={classes.textContainer}>
+          <Typography className={classes.introText} variant="h2">
+            Sport is all we do at sporty
+          </Typography>
+          <Typography className={classes.subText} variant="h4">
+            Sporty connects everyone who loves football together to chat, banter
+            your friends and know what is trending.
+          </Typography>
+          <Button className={classes.button}>Join Now</Button>
+        </Grid>
+        <Grid className={classes.secondEmojiC}>
+          <Grid className={classes.thirdEmoji}>
+            <img
+              className={classes.image3}
+              src={OrangePolygon}
+              alt="orangePolygon"
+            />
+            <img className={classes.imageBliga} src={BundesLiga} alt="Biga" />
+          </Grid>
+
+          <Grid className={classes.fourthEmoji}>
+            <img className={classes.image4} src={YellowStar} alt="yellowStar" />
+            <img className={classes.imageLigue1} src={Ligue1} alt="Ligue1" />
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   );
 };

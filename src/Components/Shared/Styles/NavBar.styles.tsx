@@ -4,7 +4,7 @@
 import styled from 'styled-components';
 
 export const Hamburger = styled.div`
-  background-color: #f1faee;
+  background-color: #27ae60;
   width: 30px;
   height: 3px;
   transition: all 0.2s linear;
@@ -15,7 +15,7 @@ export const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #f1faee;
+    background-color: #27ae60;
     content: '';
     position: absolute;
     transition: all 0.3s linear;
@@ -42,8 +42,8 @@ export const Navbox = styled.div`
   width: 100%;
   height: 100%;
   padding-top: 20px;
-  background-color: black;
-  border-top: 1.5px solid #eb392e;
+  background-color: white;
+  /* border-top: 1.5px solid #eb392e; */
   transition: all 0.1s ease-in;
   top: 0px;
   left: ${(props: any) => (props.open ? '-100%' : '0')};

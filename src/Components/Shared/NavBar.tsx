@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,14 +13,15 @@ import { Hamburger, Navbox } from './Styles/NavBar.styles';
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
-    color: theme.palette.background.default,
+    background: 'none',
+    top: '0',
     boxShadow: 'none',
-    backgroundColor: 'black',
     height: '90px',
-    padding: theme.spacing(0),
+    padding: theme.spacing(3, 2),
     justifyContent: 'center',
     [theme.breakpoints.down('sm')]: {
       height: '70px',
+      padding: theme.spacing(2, 0),
       borderBottom: '2px solid white',
     },
   },
@@ -30,20 +32,50 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex',
+
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   appLogo: {},
   appName: {
-    fontSize: theme.spacing(3),
+    fontSize: theme.spacing(4.8),
+    fontFamily: 'Montserrat Alternates',
+    fontWeight: 950,
+    color: theme.palette.primary.main,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(2.4),
+    },
   },
   appMenu: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    width: '800px',
+    height: '95%',
+    padding: theme.spacing(1, 2),
+    justifyContent: 'flex-end',
+    alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
+    },
+  },
+  menuLinks: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '50%',
+  },
+  button: {
+    color: theme.palette.background.default,
+    background: theme.palette.primary.main,
+    width: 'auto',
+    height: '50px',
+    fontSize: '20px',
+    borderRadius: '15px',
+    marginLeft: '20px',
+    '&:hover': {
+      background: theme.palette.primary.main,
+      opacity: 0.9,
     },
   },
   menuIconDiv: {
@@ -69,19 +101,22 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   text: {
-    fontSize: theme.spacing(2.5),
+    fontSize: theme.spacing(2.0),
     margin: theme.spacing(0, 0.8),
+    fontFamily: 'Montserrat',
+    fontWeight: theme.typography.fontWeightMedium,
   },
   menuText: {
     fontSize: theme.spacing(3.5),
     margin: theme.spacing(2, 0.8),
-    color: 'white',
+    color: 'black',
   },
   new: {
-    background: 'white',
-    color: 'orange',
+    backgroundColor: 'white',
+    top: '0',
+    color: 'black',
     height: '90px',
-    padding: theme.spacing(0),
+    padding: theme.spacing(3, 2),
     justifyContent: 'center',
     boxShadow: '0 5px 5px -2px rgba(0, 0, 0, 0.2)',
     marginTop: theme.spacing(-0.1),
@@ -137,9 +172,16 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
           </Grid>
 
           <Grid className={classes.appMenu}>
-            <Typography className={classes.text}>Sign Up</Typography>
-            <Typography className={classes.text}>Sign In</Typography>
+            <Grid className={classes.menuLinks}>
+              <Typography className={classes.text}>About us</Typography>
+              <Typography className={classes.text}>Contact us</Typography>
+              <Typography className={classes.text}>Sign In</Typography>
+            </Grid>
+            <Button className={classes.button}>
+              <Typography className={classes.text}>Sign Up</Typography>
+            </Button>
           </Grid>
+
           <IconButton
             className={classes.menuIconDiv}
             onClick={handleMobileMenu}
@@ -150,12 +192,17 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
       </AppBar>
       {mobileMenu && (
         <Navbox>
-          <Typography className={classes.menuText} onClick={handleMobileMenu}>
-            <Link to="/">Sign Up</Link>
-          </Typography>
-          <Typography className={classes.menuText} onClick={handleMobileMenu}>
-            <Link to="/">Sign Up</Link>
-          </Typography>
+          <Link to="/">
+            <Typography className={classes.menuText} onClick={handleMobileMenu}>
+              Sign Up
+            </Typography>
+          </Link>
+
+          <Link to="/">
+            <Typography className={classes.menuText} onClick={handleMobileMenu}>
+              Sign Up
+            </Typography>
+          </Link>
         </Navbox>
       )}
     </Grid>
