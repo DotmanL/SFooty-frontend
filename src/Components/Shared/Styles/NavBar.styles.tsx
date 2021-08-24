@@ -46,5 +46,6 @@ export const Navbox = styled.div`
   /* border-top: 1.5px solid #eb392e; */
   transition: all 0.1s ease-in;
   top: 0px;
+  z-index: 9999;
   left: ${(props: any) => (props.open ? '-100%' : '0')};
 `;
