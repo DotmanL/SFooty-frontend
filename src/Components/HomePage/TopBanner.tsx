@@ -122,8 +122,6 @@ const useStyles = makeStyles((theme) => ({
   secondEmojiC: {
     display: 'flex',
     width: '100%',
-    // position: 'relative',
-    // background: 'red',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: theme.spacing(0.5),
