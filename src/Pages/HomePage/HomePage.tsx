@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Spiral from '../assets/spiralbg.svg';
 import TopBanner from '../../Components/HomePage/TopBanner';
 import SecondBanner from '../../Components/HomePage/SecondBanner';
+// import ThirdBanner from '../../Components/HomePage/ThirdBanner';
 import { NavBar } from '../../Components/Shared/NavBar';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       marginTop: theme.spacing(0),
-      padding: theme.spacing(1, 0, 13, 0),
+      padding: theme.spacing(1, 0, 8, 0),
     },
   },
 }));

@@ -5,13 +5,14 @@ import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    background: theme.palette.primary.main,
-    height: '800px',
+    background: 'none',
+    height: '300px',
     display: 'flex',
     color: 'white',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: theme.spacing(1),
     [theme.breakpoints.down('sm')]: {},
   },
 }));
