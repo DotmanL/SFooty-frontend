@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subText: {
     fontSize: theme.spacing(2.4),
-    fontWeight: 800,
+    fontWeight: 600,
     color: 'black',
     textAlign: 'center',
     width: '60%',

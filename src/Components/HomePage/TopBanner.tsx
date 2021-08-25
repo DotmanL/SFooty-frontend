@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subText: {
     fontSize: theme.spacing(2.4),
-    fontWeight: 800,
+    fontWeight: 600,
     color: 'black',
     textAlign: 'center',
     width: '60%',
@@ -115,8 +115,8 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.9,
     },
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1, 2.5),
-      fontSize: theme.spacing(1.6),
+      padding: theme.spacing(0.8, 2),
+      fontSize: theme.spacing(1.4),
     },
   },
   secondEmojiC: {
@@ -166,7 +166,7 @@ const TopBanner: React.FC = () => {
         </Grid>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
-            Sport is all we do at sporty
+            Football is all we do at sporty
           </Typography>
           <Typography className={classes.subText} variant="h4">
             Sporty connects everyone who loves football together to chat, banter
