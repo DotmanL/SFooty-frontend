@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
   appLogo: {},
   appName: {
     fontSize: theme.spacing(4.8),
-    fontFamily: 'Montserrat Alternates',
-    fontWeight: 950,
+    fontFamily: 'Montserrat',
+    fontWeight: 900,
     color: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.4),
@@ -122,6 +122,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(-0.1),
     [theme.breakpoints.down('sm')]: {
       height: '70px',
+      padding: theme.spacing(3, 0),
     },
   },
 }));
@@ -200,7 +201,7 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
 
           <Link to="/">
             <Typography className={classes.menuText} onClick={handleMobileMenu}>
-              Sign Up
+              Sign In
             </Typography>
           </Link>
         </Navbox>

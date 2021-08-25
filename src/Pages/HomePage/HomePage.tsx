@@ -3,13 +3,14 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Spiral from '../assets/spiralbg.svg';
 import TopBanner from '../../Components/HomePage/TopBanner';
-// import SecondBanner from '../../Components/HomePage/SecondBanner';
+import SecondBanner from '../../Components/HomePage/SecondBanner';
 // import ThirdBanner from '../../Components/HomePage/ThirdBanner';
 import { NavBar } from '../../Components/Shared/NavBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     // background: theme.palette.info.main,
+    position: 'relative',
     height: 'auto',
     padding: theme.spacing(2, 1, 10, 1),
     backgroundImage: `url(${Spiral})`,
@@ -32,8 +33,8 @@ const HomePage: React.FC = () => {
     <Grid className={classes.root}>
       <NavBar appName="Sporty" />
       <TopBanner />
-      {/* <SecondBanner />
-      <ThirdBanner /> */}
+      <SecondBanner />
+      {/* <ThirdBanner /> */}
     </Grid>
   );
 };
