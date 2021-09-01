@@ -8,7 +8,12 @@ type LinkProps = {
 
 export const Link: React.FC<LinkProps> = ({ children, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <UILink style={{ color: 'white' }} component={RouterLink} {...props}>
+  <UILink
+    style={{ color: 'white', margin: '0px' }}
+    component={RouterLink}
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    {...props}
+  >
     {children}
   </UILink>
 );

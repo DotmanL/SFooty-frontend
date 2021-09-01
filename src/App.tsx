@@ -11,6 +11,8 @@ import { history } from './history';
 import Spinner from './Components/Shared/Spinner';
 
 const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
+const SignUpPage = lazy(() => import('./Pages/OnboardingPages/SignUpPage'));
+const AboutUsPage = lazy(() => import('./Pages/AboutUsPage/AboutUsPage'));
 
 const theme = responsiveFontSizes(
   createMuiTheme({
@@ -59,6 +61,8 @@ const App: React.FC = () => (
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/aboutus" component={AboutUsPage} />
+          <Route exact path="/signup" component={SignUpPage} />
         </Switch>
       </Router>
     </Suspense>

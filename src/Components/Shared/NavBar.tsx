@@ -174,12 +174,24 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
 
           <Grid className={classes.appMenu}>
             <Grid className={classes.menuLinks}>
-              <Typography className={classes.text}>About us</Typography>
-              <Typography className={classes.text}>Contact us</Typography>
-              <Typography className={classes.text}>Sign In</Typography>
+              <Link to="/" style={{ color: 'black' }} className={classes.text}>
+                About us
+              </Link>
+              <Link to="/" style={{ color: 'black' }} className={classes.text}>
+                Contact us
+              </Link>
+              <Link
+                to="/"
+                className={classes.text}
+                style={{ color: '#27AE60' }}
+              >
+                Log in
+              </Link>
             </Grid>
             <Button className={classes.button}>
-              <Typography className={classes.text}>Sign Up</Typography>
+              <Link to="/signup" className={classes.text}>
+                Sign Up
+              </Link>
             </Button>
           </Grid>
 
@@ -193,7 +205,7 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
       </AppBar>
       {mobileMenu && (
         <Navbox>
-          <Link to="/">
+          <Link to="/signup">
             <Typography className={classes.menuText} onClick={handleMobileMenu}>
               Sign Up
             </Typography>

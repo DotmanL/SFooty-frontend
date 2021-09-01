@@ -2,18 +2,17 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import BluePolygon from './assets/bluePolygon.svg';
-import RedPolygon from './assets/redPolyygon.svg';
+import GoalPost from './assets/goalPost.png';
+import Football from './assets/balll.png';
 
 const useStyles = makeStyles((theme) => ({
   main: {
     height: 'auto',
-    // background: 'yellow',
-    // borderTop: '2px solid red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: theme.spacing(3),
+    padding: theme.spacing(0),
+    marginTop: theme.spacing(9),
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -24,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    // background: 'red',
   },
   introText: {
     display: 'flex',
@@ -32,12 +30,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(6.4),
     fontWeight: 900,
     textAlign: 'center',
-    // background: 'purple',
     color: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
       fontWeight: 700,
       fontSize: theme.spacing(1.8),
-      // marginLeft: theme.spacing(3),
     },
   },
   subText: {
@@ -57,24 +53,29 @@ const useStyles = makeStyles((theme) => ({
   polygonContainer: {
     display: 'flex',
     flexDirection: 'row',
-    // background: 'purple',
     width: '100%',
     justifyContent: 'space-between',
+    padding: theme.spacing(0, 0, 0, 0),
   },
   leftPolygon: {
     display: 'flex',
-    marginTop: theme.spacing(-10),
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    padding: theme.spacing(0),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(-10),
     },
   },
-  bluePolygon: {
-    marginTop: theme.spacing(6),
-    width: '130px',
-    height: '195px',
+  football: {
+    marginTop: theme.spacing(-10),
+    marginLeft: theme.spacing(-2),
+    width: '200px',
+    height: '200px',
     [theme.breakpoints.down('sm')]: {
-      width: '50px',
-      height: '45px',
+      marginTop: theme.spacing(7),
+      marginLeft: theme.spacing(-1.6),
+      width: '90px',
+      height: '90px',
     },
   },
   rightPolygon: {
@@ -86,12 +87,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   redPolygon: {
-    width: '130px',
+    width: '250px',
     height: '195px',
     marginTop: theme.spacing(12),
     [theme.breakpoints.down('sm')]: {
-      width: '50px',
-      height: '45px',
+      width: '80px',
+      height: '55px',
     },
   },
 }));
@@ -114,14 +115,10 @@ const SecondBanner: React.FC = () => {
 
         <Grid className={classes.polygonContainer}>
           <Grid className={classes.leftPolygon}>
-            <img
-              className={classes.bluePolygon}
-              src={BluePolygon}
-              alt="blueP"
-            />
+            <img className={classes.football} src={Football} alt="football" />
           </Grid>
           <Grid className={classes.rightPolygon}>
-            <img className={classes.redPolygon} src={RedPolygon} alt="redP" />
+            <img className={classes.redPolygon} src={GoalPost} alt="redP" />
           </Grid>
         </Grid>
       </Grid>
