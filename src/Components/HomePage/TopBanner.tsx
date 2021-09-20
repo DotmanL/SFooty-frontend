@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from '../Shared/Components/Link';
 // import BlueStar from './assets/blueStar.svg';
 import PL from './assets/pl.png';
 import LaLiga from './assets/laliga2.png';
@@ -182,17 +183,20 @@ const TopBanner: React.FC = () => {
             Football is all we do at sporty
           </Typography>
           <Typography className={classes.subText} variant="h4">
-            Sporty connects everyone who loves football together to chat, banter
-            your friends and know what is trending.
+            Sporty connects everyone who loves football together to chat, banter your friends and
+            know what is trending.
           </Typography>
-          <Button className={classes.button}>Join Now</Button>
+          <Button className={classes.button}>
+            <Link
+              to="/signup"
+              // className={classes.text}
+            >
+              Join Now
+            </Link>
+          </Button>
         </Grid>
         <Grid className={classes.secondEmojiC}>
-          <img
-            className={classes.imageBliga}
-            src={BundesLiga}
-            alt="BundesLiga"
-          />
+          <img className={classes.imageBliga} src={BundesLiga} alt="BundesLiga" />
           <img className={classes.imageSeriea} src={SerieA} alt="SerieA" />
           <img className={classes.imageLigue1} src={Ligue1} alt="Ligue1" />
         </Grid>

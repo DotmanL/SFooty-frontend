@@ -5,7 +5,7 @@ import Spiral from './assets/spiralbg.svg';
 import TopBanner from '../../Components/HomePage/TopBanner';
 import SecondBanner from '../../Components/HomePage/SecondBanner';
 import ThirdBanner from '../../Components/HomePage/ThirdBanner';
-import { NavBar } from '../../Components/Shared/NavBar';
+import { NavBar } from '../../Components/Shared/Components/NavBar';
 import Footer from '../../Components/HomePage/Footer';
 
 const useStyles = makeStyles((theme) => ({

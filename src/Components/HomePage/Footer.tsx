@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import { Link } from '../Shared/Link';
+import { Link } from '../Shared/Components/Link';
 
 const useStyles = makeStyles((theme) => ({
   main: {

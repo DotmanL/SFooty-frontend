@@ -9,6 +9,7 @@ import { Typography } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import { Link } from './Link';
 import { Hamburger, Navbox } from './Styles/NavBar.styles';
+import Logo from './assets/logo192.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -37,7 +38,21 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  appLogo: {},
+  appLogo: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  logoo: {
+    width: '50px',
+    height: '50px',
+    marginTop: '13px',
+    [theme.breakpoints.down('sm')]: {
+      width: '30px',
+      height: '30px',
+      marginTop: '2px',
+    },
+  },
   appName: {
     fontSize: theme.spacing(4.8),
     fontFamily: 'Montserrat',
@@ -169,6 +184,7 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
       >
         <Toolbar className={classes.toolbar}>
           <Grid className={classes.appLogo}>
+            <img className={classes.logoo} src={Logo} alt="Logo" />
             <Typography className={classes.appName}>{appName}</Typography>
           </Grid>
 

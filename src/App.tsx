@@ -8,11 +8,14 @@ import {
 } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { history } from './history';
-import Spinner from './Components/Shared/Spinner';
+import Spinner from './Components/Shared/Components/Spinner';
 
 const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
 const SignUpPage = lazy(() => import('./Pages/OnboardingPages/SignUpPage'));
 const AboutUsPage = lazy(() => import('./Pages/AboutUsPage/AboutUsPage'));
+const NotFoundPage = lazy(
+  () => import('./Components/Shared/Pages/NotFoundPage')
+);
 
 const theme = responsiveFontSizes(
   createMuiTheme({
@@ -63,6 +66,7 @@ const App: React.FC = () => (
           <Route exact path="/" component={HomePage} />
           <Route exact path="/aboutus" component={AboutUsPage} />
           <Route exact path="/signup" component={SignUpPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </Router>
     </Suspense>
