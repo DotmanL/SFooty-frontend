@@ -28,12 +28,12 @@ const useStyles = makeStyles((theme) => ({
   },
   titleContainer: {
     display: 'flex',
-    alignSelf: 'flex-start',
+
     marginTop: theme.spacing(0.5),
   },
   toolbar: {
     display: 'flex',
-
+    // background: 'orange',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+    // background: 'blue',
   },
   logoo: {
     width: '50px',
@@ -76,13 +77,11 @@ const useStyles = makeStyles((theme) => ({
   },
   menuLinks: {
     display: 'flex',
+    // background: 'red',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    width: '65%',
-    [theme.breakpoints.down('sm')]: {
-      width: '50%',
-    },
+    [theme.breakpoints.down('sm')]: {},
   },
   button: {
     color: theme.palette.background.default,
@@ -112,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mobileMenu: {
     height: '100vh',
-    background: 'red',
+    // background: 'red',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -120,11 +119,12 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontSize: theme.spacing(2.0),
-    margin: theme.spacing(0, 0.8),
+    margin: theme.spacing(0, 1.8),
     fontFamily: 'Montserrat',
     fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
+      margin: theme.spacing(0, 1.4),
     },
   },
   menuText: {
