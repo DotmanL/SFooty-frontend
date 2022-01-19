@@ -31,8 +31,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontWeight: 800,
+    fontSize: '20px',
   },
   headers: {
+    fontSize: '20px',
     fontWeight: theme.typography.fontWeightMedium,
     margin: theme.spacing(0, 0, 0, 0),
   },
@@ -47,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
   links: {
     margin: theme.spacing(1, 0, 1, 0),
     fontWeight: 500,
-    fontSize: '30px',
+    fontSize: '20px',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '24px',
+      fontSize: '14px',
     },
   },
 }));
@@ -65,7 +67,7 @@ const Footer: React.FC = () => {
           </Typography>
         </Grid>
         <Grid className={classes.otherColumns}>
-          <Typography className={classes.headers} variant="h4">
+          <Typography className={classes.headers} variant="h3">
             Company
           </Typography>
           <Link className={classes.links} to="/aboutus">
@@ -73,7 +75,7 @@ const Footer: React.FC = () => {
           </Link>
 
           {/* Change links */}
-          <Link className={classes.links} to="/" variant="h4">
+          <Link className={classes.links} to="/">
             FAQs
           </Link>
         </Grid>
@@ -82,7 +84,7 @@ const Footer: React.FC = () => {
             Get in touch
           </Typography>
           {/* Change links */}
-          <Link className={classes.links} to="/" variant="h4">
+          <Link className={classes.links} to="/">
             Contact us
           </Link>
         </Grid>

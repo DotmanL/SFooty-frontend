@@ -9,7 +9,7 @@ import PL from './assets/pl.png';
 import LaLiga from './assets/laliga2.png';
 import BundesLiga from './assets/bliga.png';
 import Ligue1 from './assets/ligue1.svg';
-import SerieA from './assets/seriea.png';
+// import SerieA from './assets/seriea.png';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -26,12 +26,11 @@ const useStyles = makeStyles((theme) => ({
   firstEmojiC: {
     display: 'flex',
     width: '100%',
-    // position: 'relative',
-    // background: 'green',
+    // background: 'blue',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: theme.spacing(13),
-    padding: theme.spacing(2, 9),
+    marginTop: theme.spacing(8),
+    padding: theme.spacing(2, 10),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(-2.5),
       padding: theme.spacing(2, 2),
@@ -63,32 +62,28 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     // background: 'red',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
+    width: 'auto',
     height: 'auto',
-    marginTop: theme.spacing(-8),
-    padding: '5px 30px',
-    [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      marginTop: theme.spacing(-5),
-      height: 'auto',
-      padding: '5px 20px',
-    },
+    marginTop: theme.spacing(-4),
+    [theme.breakpoints.down('sm')]: {},
   },
   introText: {
     display: 'flex',
     fontFamily: 'Montserrat',
-    fontSize: theme.spacing(6.4),
+    fontSize: theme.spacing(5.6),
     fontWeight: 900,
     textAlign: 'center',
-    marginTop: theme.spacing(-12),
+    alignSelf: 'center',
+    marginTop: theme.spacing(-3),
     color: theme.palette.primary.main,
-    width: '45%',
+    width: '50%',
     [theme.breakpoints.down('sm')]: {
+      width: '40%',
       fontWeight: 700,
       marginTop: theme.spacing(-2),
-      fontSize: theme.spacing(1.8),
+      fontSize: theme.spacing(1.6),
     },
   },
   subText: {
@@ -96,10 +91,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     color: 'black',
     textAlign: 'center',
-    width: '60%',
-    marginTop: theme.spacing(2),
+    alignSelf: 'center',
+    width: '50%',
+    marginTop: theme.spacing(1),
     [theme.breakpoints.down('sm')]: {
-      width: '80%',
+      width: '60%',
       fontWeight: 500,
       fontSize: theme.spacing(1.4),
       marginTop: theme.spacing(1),
@@ -110,28 +106,27 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     width: 'auto',
     height: 'auto',
-    padding: theme.spacing(1.5, 4),
+    padding: theme.spacing(0.5, 4),
     fontSize: theme.spacing(1.8),
     borderRadius: '10px',
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
     '&:hover': {
       background: theme.palette.primary.main,
       opacity: 0.9,
     },
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(0.8, 2),
-      fontSize: theme.spacing(1.4),
+      padding: theme.spacing(0.8, 1),
+      fontSize: theme.spacing(1.2),
     },
   },
   secondEmojiC: {
     display: 'flex',
     width: '100%',
     flexDirection: 'row',
+    // background: 'red',
     justifyContent: 'space-between',
-    marginTop: theme.spacing(-3.5),
-    padding: theme.spacing(2, 9),
+    padding: theme.spacing(0, 18),
     [theme.breakpoints.down('sm')]: {
-      marginTop: theme.spacing(1),
       padding: theme.spacing(2, 2),
     },
   },
@@ -146,20 +141,20 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(3.5),
     },
   },
-  imageSeriea: {
-    width: '120px',
-    height: '170px',
-    marginTop: theme.spacing(3),
-    [theme.breakpoints.down('sm')]: {
-      width: '55px',
-      height: '65px',
-      marginTop: theme.spacing(4),
-    },
-  },
+  // imageSeriea: {
+  //   width: '120px',
+  //   height: '170px',
+  //   marginTop: theme.spacing(3),
+  //   [theme.breakpoints.down('sm')]: {
+  //     width: '55px',
+  //     height: '65px',
+  //     marginTop: theme.spacing(4),
+  //   },
+  // },
   imageLigue1: {
     width: '150px',
     height: '150px',
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(-1),
     [theme.breakpoints.down('sm')]: {
       width: '65px',
       height: '55px',
@@ -180,7 +175,7 @@ const TopBanner: React.FC = () => {
         </Grid>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
-            Football is all we do at sporty
+            Sport is all we do at sporty
           </Typography>
           <Typography className={classes.subText} variant="h4">
             Sporty connects everyone who loves football together to chat, banter your friends and
@@ -197,7 +192,7 @@ const TopBanner: React.FC = () => {
         </Grid>
         <Grid className={classes.secondEmojiC}>
           <img className={classes.imageBliga} src={BundesLiga} alt="BundesLiga" />
-          <img className={classes.imageSeriea} src={SerieA} alt="SerieA" />
+          {/* <img className={classes.imageSeriea} src={SerieA} alt="SerieA" /> */}
           <img className={classes.imageLigue1} src={Ligue1} alt="Ligue1" />
         </Grid>
       </Grid>

@@ -78,16 +78,19 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '50%',
+    alignItems: 'center',
+    width: '65%',
+    [theme.breakpoints.down('sm')]: {
+      width: '50%',
+    },
   },
   button: {
     color: theme.palette.background.default,
     background: theme.palette.primary.main,
     width: 'auto',
-    height: '50px',
-    fontSize: '20px',
+    height: 'auto',
     borderRadius: '15px',
-    marginLeft: '20px',
+    padding: theme.spacing(0.3, 2),
     '&:hover': {
       background: theme.palette.primary.main,
       opacity: 0.9,
@@ -120,6 +123,9 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 0.8),
     fontFamily: 'Montserrat',
     fontWeight: theme.typography.fontWeightMedium,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.spacing(1.6),
+    },
   },
   menuText: {
     fontSize: theme.spacing(3.5),
@@ -151,9 +157,7 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [scrolledDownEnough, setScrolledDownEnough] = useState(false);
 
-  const handleMobileMenu = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ): void => {
+  const handleMobileMenu = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
     event.preventDefault();
     setMobileMenu(!mobileMenu);
   };
@@ -161,8 +165,7 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
   useEffect(() => {
     const handleScroll = () => {
       // eslint-disable-next-line operator-linebreak
-      const bodyScrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop;
+      const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       // eslint-disable-next-line no-shadow
       const scrolledDown = bodyScrollTop > 120;
       setScrolledDownEnough(scrolledDown);
@@ -196,25 +199,18 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
               <Link to="/" style={{ color: 'black' }} className={classes.text}>
                 Contact us
               </Link>
-              <Link
-                to="/"
-                className={classes.text}
-                style={{ color: '#27AE60' }}
-              >
+              <Link to="/" className={classes.text} style={{ color: '#27AE60' }}>
                 Log in
               </Link>
+              <Button className={classes.button}>
+                <Link to="/signup" className={classes.text}>
+                  Sign Up
+                </Link>
+              </Button>
             </Grid>
-            <Button className={classes.button}>
-              <Link to="/signup" className={classes.text}>
-                Sign Up
-              </Link>
-            </Button>
           </Grid>
 
-          <IconButton
-            className={classes.menuIconDiv}
-            onClick={handleMobileMenu}
-          >
+          <IconButton className={classes.menuIconDiv} onClick={handleMobileMenu}>
             {mobileMenu ? <Hamburger open /> : <Hamburger />}
           </IconButton>
         </Toolbar>
