@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: theme.spacing(2, 10),
+    marginTop: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(2.5),
       padding: theme.spacing(2, 2),

@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(15),
+      height: '100vh',
     },
   },
   title: {
