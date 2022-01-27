@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     bottom: 0,
     left: 0,
+    position: 'relative',
     flexDirection: 'row',
     justifyContent: 'space-around',
     background: theme.palette.primary.main,
