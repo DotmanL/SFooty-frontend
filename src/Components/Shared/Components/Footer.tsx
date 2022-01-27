@@ -9,12 +9,16 @@ import { Link } from './Link';
 const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
+    position: 'relative',
+    bottom: 0,
+    left: 0,
     flexDirection: 'row',
     justifyContent: 'space-around',
     background: theme.palette.primary.main,
     color: 'white',
     height: '400px',
     padding: theme.spacing(3, 6),
+    marginTop: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(1),
       padding: theme.spacing(0, 0, 2, 2),

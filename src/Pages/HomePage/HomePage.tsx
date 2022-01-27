@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    // background: 'blue',
     justifyContent: 'center',
     height: 'auto',
     width: '100%',
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${Spiral})`,
     boxShadow: 'inset 0 0 0 2000px rgba(255, 255, 255, 0.5)',
     backgroundSize: 'cover',
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(0),
     [theme.breakpoints.down('sm')]: {
       height: '100%',
       width: '100%',
