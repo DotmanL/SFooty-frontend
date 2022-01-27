@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import GoalPost from './assets/goalPost.png';
@@ -7,21 +8,23 @@ import Football from './assets/balll.png';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    height: 'auto',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: theme.spacing(0),
-    marginTop: theme.spacing(9),
+    // border: '2px solid red',
+    padding: theme.spacing(3, 1),
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       alignItems: 'center',
-      marginTop: theme.spacing(4),
+      marginTop: theme.spacing(-2),
+      padding: theme.spacing(1, 0.5),
     },
   },
   textContainer: {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   introText: {
@@ -30,8 +33,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(6.4),
     fontWeight: 900,
     textAlign: 'center',
+    marginTop: theme.spacing(5),
     color: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(0),
       fontWeight: 700,
       fontSize: theme.spacing(1.8),
     },
@@ -39,12 +44,14 @@ const useStyles = makeStyles((theme) => ({
   subText: {
     fontSize: theme.spacing(2.4),
     fontWeight: 600,
+    lineHeight: '30px',
     color: 'black',
     textAlign: 'center',
-    width: '60%',
+    width: '40%',
     marginTop: theme.spacing(2),
     [theme.breakpoints.down('sm')]: {
       fontWeight: 500,
+      lineHeight: '20px',
       width: '70%',
       fontSize: theme.spacing(1.4),
       marginTop: theme.spacing(0.7),
@@ -55,7 +62,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
+    marginTop: theme.spacing(-5),
     padding: theme.spacing(0, 0, 0, 0),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(-2),
+    },
   },
   leftPolygon: {
     display: 'flex',
@@ -101,15 +112,14 @@ const SecondBanner: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid className={classes.main}>
+      <Container maxWidth="xl" className={classes.main}>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
             Get to know us.
           </Typography>
           <Typography className={classes.subText} variant="h4">
-            Sporty is a social media site, and its primary purpose is to connect
-            people and allow people to share their thoughts on football with a
-            big audience.
+            Sporty is a social media site, and its primary purpose is to connect people and allow
+            people to share their thoughts on football with a big audience.
           </Typography>
         </Grid>
 
@@ -121,7 +131,7 @@ const SecondBanner: React.FC = () => {
             <img className={classes.redPolygon} src={GoalPost} alt="redP" />
           </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </>
   );
 };

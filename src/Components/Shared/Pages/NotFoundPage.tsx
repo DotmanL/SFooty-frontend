@@ -2,45 +2,50 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { ReactComponent as ErrImage } from './assets/404Image.svg';
-import ErrText from './assets/404.png';
+// import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import ErrImage from './assets/2456051.jpg';
+// import ErrText from './assets/404.png';
 import { Link } from '../Components/Link';
 import { NavBar } from '../Components/NavBar';
+import Footer from '../Components/Footer';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    paddingBottom: '40px',
-    [theme.breakpoints.down('sm')]: {
-      paddingBottom: '20px',
-    },
-  },
   contentOffset: {
-    marginTop: theme.spacing(8.9),
-    ...(theme.mixins.toolbar as CSSProperties),
+    marginTop: theme.spacing(15),
+    marginBottom: theme.spacing(10),
+    // ...(theme.mixins.toolbar as CSSProperties),
     display: 'flex',
-    height: '100vh',
+    height: 'auto',
     flexDirection: 'column',
     fontFamily: 'Sofia Pro',
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
-      marginTop: theme.spacing(2.7),
+      marginTop: theme.spacing(15),
     },
   },
   title: {
-    color: '#4E8579',
+    color: '#27AE60',
     fontSize: '72px',
     fontWeight: theme.typography.fontWeightLight,
+    textAlign: 'center',
+  },
+  credit: {
+    marginTop: theme.spacing(12),
     textAlign: 'center',
   },
   image: {
     alignSelf: 'center',
     marginTop: theme.spacing(-7),
     marginBottom: theme.spacing(-14),
-    width: '100%',
+    width: '700px',
+    height: '700px',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      height: '70%',
+    },
   },
   text: {
     alignSelf: 'center',
@@ -55,11 +60,11 @@ const useStyles = makeStyles((theme) => ({
   button: {
     background: '#27AE60',
     color: 'white',
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(2),
     padding: '5px 35px 5px 35px',
     '&:hover': {
       backgroundColor: 'white',
-      color: '#1C819E',
+      color: '#27AE60',
     },
   },
   back: {
@@ -74,14 +79,11 @@ export const NotFoundPage: React.FC = () => {
     <>
       <NavBar appName="Sporty" />
       <Container maxWidth="xl" className={classes.contentOffset}>
-        <ErrImage alt="404 image" className={classes.image} />
-        <Grid className={classes.text}>
-          <img src={ErrText} alt="404" />
-        </Grid>
-        <Typography
-          style={{ fontWeight: 'bold', textAlign: 'center' }}
-          variant="h5"
-        >
+        <img src={ErrImage} alt="404i" className={classes.image} />
+        <a className={classes.credit} href="https://www.freepik.com/vectors/business">
+          Business vector created by pikisuperstar - www.freepik.com
+        </a>
+        <Typography style={{ fontWeight: 'bold', textAlign: 'center' }} variant="h6">
           We can&apos;t find the page you are looking for.
         </Typography>
         <Link className={classes.link} to="/">
@@ -92,6 +94,7 @@ export const NotFoundPage: React.FC = () => {
           </Button>
         </Link>
       </Container>
+      <Footer />
     </>
   );
 };
