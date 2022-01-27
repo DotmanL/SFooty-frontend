@@ -77,8 +77,8 @@ export const NotFoundPage: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <NavBar appName="Sporty" />
       <Container maxWidth="xl" className={classes.contentOffset}>
+        <NavBar appName="Sporty" />
         <img src={ErrImage} alt="404i" className={classes.image} />
         <a className={classes.credit} href="https://www.freepik.com/vectors/business">
           Business vector created by pikisuperstar - www.freepik.com

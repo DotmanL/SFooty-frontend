@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
     background: theme.palette.primary.main,
     color: 'white',
+    width: '100%',
     height: '400px',
     padding: theme.spacing(3, 6),
     marginTop: theme.spacing(2),
