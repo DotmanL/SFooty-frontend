@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import Lspiral from './assets/lspiral.svg';
 import YellowPolygon from './assets/yellowPolygon.svg';
@@ -175,7 +174,7 @@ const ThirdBanner: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <Container maxWidth="xl" className={classes.main}>
+      <Grid className={classes.main}>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
             We’re Here To
@@ -227,7 +226,7 @@ const ThirdBanner: React.FC = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
+      </Grid>
     </>
   );
 };

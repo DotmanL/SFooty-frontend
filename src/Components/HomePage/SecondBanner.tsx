@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import GoalPost from './assets/goalPost.png';
@@ -112,7 +111,7 @@ const SecondBanner: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <Container maxWidth="xl" className={classes.main}>
+      <Grid className={classes.main}>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
             Get to know us.
@@ -131,7 +130,7 @@ const SecondBanner: React.FC = () => {
             <img className={classes.redPolygon} src={GoalPost} alt="redP" />
           </Grid>
         </Grid>
-      </Container>
+      </Grid>
     </>
   );
 };

@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(10),
     // ...(theme.mixins.toolbar as CSSProperties),
     display: 'flex',
-    minHeight: '100%',
+    minHeight: '100vh',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(15),
-      minHeight: '100%',
+      minHeight: '100vh',
     },
   },
   title: {

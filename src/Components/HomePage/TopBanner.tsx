@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -170,7 +169,7 @@ const useStyles = makeStyles((theme) => ({
 const TopBanner: React.FC = () => {
   const classes = useStyles();
   return (
-    <Container maxWidth="xl" className={classes.main}>
+    <Grid className={classes.main}>
       <Grid className={classes.firstEmojiC}>
         <img className={classes.imagePl} src={PL} alt="PremierLeague" />
 
@@ -199,7 +198,7 @@ const TopBanner: React.FC = () => {
         {/* <img className={classes.imageSeriea} src={SerieA} alt="SerieA" /> */}
         <img className={classes.imageLigue1} src={Ligue1} alt="Ligue1" />
       </Grid>
-    </Container>
+    </Grid>
   );
 };
 
