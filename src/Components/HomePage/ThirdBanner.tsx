@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subText: {
     fontSize: theme.spacing(2.4),
-    fontWeight: 550,
+    fontWeight: 500,
     display: 'flex',
     flexDirection: 'column',
     color: 'black',

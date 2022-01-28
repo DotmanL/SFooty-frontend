@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: theme.spacing(2, 10),
+    padding: theme.spacing(2, 12),
     marginTop: theme.spacing(4),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(2.5),
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   imagePl: {
     width: '120px',
     height: '120px',
-    marginTop: theme.spacing(0.5),
+    marginTop: theme.spacing(1.5),
     [theme.breakpoints.down('sm')]: {
       width: '50px',
       height: '50px',
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   imageLl: {
     width: '120px',
     height: '160px',
-    marginTop: theme.spacing(-2.5),
+    marginTop: theme.spacing(-1),
     [theme.breakpoints.down('sm')]: {
       width: '40px',
       height: '60px',
@@ -79,18 +79,18 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     fontFamily: 'Montserrat',
     fontSize: theme.spacing(5.6),
-    fontWeight: 900,
+    fontWeight: 750,
     textAlign: 'center',
     color: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
-      fontWeight: 700,
+      fontWeight: 600,
       width: 'auto',
       fontSize: theme.spacing(1.6),
     },
   },
   subText: {
     fontSize: theme.spacing(2.4),
-    fontWeight: 600,
+    fontWeight: 500,
     lineHeight: '30px',
     color: 'black',
     textAlign: 'center',
