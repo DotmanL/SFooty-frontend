@@ -17,9 +17,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(10),
     // ...(theme.mixins.toolbar as CSSProperties),
     display: 'flex',
-    height: 'auto',
+    minHeight: '100%',
     flexDirection: 'column',
-    fontFamily: 'Sofia Pro',
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
