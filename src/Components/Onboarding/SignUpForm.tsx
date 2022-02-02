@@ -20,19 +20,23 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: theme.spacing(7),
+    margin: theme.spacing(7, 10, 2, 10),
     padding: theme.spacing(2, 0, 2, 0),
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(7),
       display: 'flex',
       flexDirection: 'column',
+      minHeight: '100vh',
     },
   },
   formMain: {
     padding: theme.spacing(5, 5),
     borderRadius: '15px',
-    width: '35%',
+    width: 'auto',
     // backgroundColor: 'whitesmoke',
+    // [theme.breakpoints.down('xl')]: {
+    //   width: 'sut',
+    // },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       borderRadius: '0px',

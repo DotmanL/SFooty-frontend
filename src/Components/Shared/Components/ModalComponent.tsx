@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 // import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -24,9 +25,10 @@ const useStyles = makeStyles((theme) => ({
 
 interface ModalComponentProps {
   buttonTitle: string;
+  component: JSX.Element;
 }
 
-export const ModalComponent: React.FC = () => {
+export const ModalComponent: React.FC<ModalComponentProps> = ({ buttonTitle, component }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -34,8 +36,9 @@ export const ModalComponent: React.FC = () => {
 
   return (
     <Container maxWidth="xl" className={classes.main}>
+      <Button>{buttonTitle}</Button>
       <Modal open={open} onClose={handleClose}>
-        <Grid />
+        <Grid>{component}</Grid>
       </Modal>
     </Container>
   );

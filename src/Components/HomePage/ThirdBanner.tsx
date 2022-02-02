@@ -156,6 +156,7 @@ const useStyles = makeStyles((theme) => ({
   },
   buttonText: {
     fontSize: theme.spacing(2.4),
+    color: 'white',
     fontWeight: theme.typography.fontWeightLight,
     margin: theme.spacing(0, 1),
     [theme.breakpoints.down('sm')]: {

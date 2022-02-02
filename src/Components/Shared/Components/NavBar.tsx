@@ -121,6 +121,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     fontSize: theme.spacing(2.0),
     margin: theme.spacing(0, 1.8),
+    color: theme.palette.background.default,
     fontFamily: 'Montserrat',
     fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down('sm')]: {
@@ -134,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'black',
   },
   new: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.background.default,
     top: '0',
     color: 'black',
     height: '90px',

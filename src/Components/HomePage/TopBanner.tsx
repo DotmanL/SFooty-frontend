@@ -122,6 +122,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.spacing(1.2),
     },
   },
+  text: {
+    color: theme.palette.background.default,
+  },
   secondEmojiC: {
     display: 'flex',
     width: '100%',
@@ -185,10 +188,7 @@ const TopBanner: React.FC = () => {
           what is trending.
         </Typography>
         <Button className={classes.button}>
-          <Link
-            to="/signup"
-            // className={classes.text}
-          >
+          <Link to="/signup" className={classes.text}>
             Join Now
           </Link>
         </Button>
