@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     // background: 'red',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     minHeight: '100vh',
-    margin: theme.spacing(5, 10, 2, 10),
+    margin: theme.spacing(6, 10, 2, 10),
     padding: theme.spacing(2, 0, 2, 0),
     [theme.breakpoints.down('sm')]: {
       margin: theme.spacing(4, 0, 2, 0),
