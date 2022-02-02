@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(7, 10, 2, 10),
     padding: theme.spacing(2, 0, 2, 0),
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(7, 0, 2, 0),
+      margin: theme.spacing(3, 0, 2, 0),
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     // },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
+      minHeight: '100vh',
       borderRadius: '0px',
       padding: theme.spacing(2, 2),
     },
@@ -68,14 +69,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(2.4),
     marginTop: theme.spacing(1.5),
     [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(1.8),
+      fontSize: theme.spacing(1.6),
     },
   },
   links: {
     fontSize: theme.spacing(2.4),
     color: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(1.8),
+      fontSize: theme.spacing(1.6),
     },
   },
   button: {
