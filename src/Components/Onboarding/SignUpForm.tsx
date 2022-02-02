@@ -20,10 +20,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: theme.spacing(7, 10, 2, 10),
+    minHeight: '100vh',
+    margin: theme.spacing(5, 10, 2, 10),
     padding: theme.spacing(2, 0, 2, 0),
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(3, 0, 2, 0),
+      margin: theme.spacing(4, 0, 2, 0),
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
@@ -39,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
     // },
     [theme.breakpoints.down('sm')]: {
       width: '100%',
-      minHeight: '100vh',
       borderRadius: '0px',
       padding: theme.spacing(2, 2),
     },
