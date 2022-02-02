@@ -2,7 +2,9 @@ import React from 'react';
 // import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import SignUpForm from '../../Components/Onboarding/SignUpForm';
+import { SignUpForm } from '../../Components/Onboarding/SignUpForm';
+import { NavBar } from '../../Components/Shared/Components/NavBar';
+import Footer from '../../Components/Shared/Components/Footer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +17,9 @@ const SignUpPage: React.FC = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="xl" className={classes.root}>
-      <SignUpForm />
+      <NavBar appName="Sporty" />
+      <SignUpForm isSubmitting={false} />
+      <Footer />
     </Container>
   );
 };

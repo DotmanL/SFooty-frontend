@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
+
     // background: 'blue',
   },
   logoo: {
@@ -186,10 +187,12 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
         })}
       >
         <Toolbar className={classes.toolbar}>
-          <Grid className={classes.appLogo}>
-            <img className={classes.logoo} src={Logo} alt="Logo" />
-            <Typography className={classes.appName}>{appName}</Typography>
-          </Grid>
+          <Link to="/">
+            <Grid className={classes.appLogo}>
+              <img className={classes.logoo} src={Logo} alt="Logo" />
+              <Typography className={classes.appName}>{appName}</Typography>
+            </Grid>
+          </Link>
 
           <Grid className={classes.appMenu}>
             <Grid className={classes.menuLinks}>

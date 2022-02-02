@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       height: '100%',
       width: '100%',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'repeat',
       marginTop: theme.spacing(0),
       padding: theme.spacing(1, 0, 0, 0),
     },

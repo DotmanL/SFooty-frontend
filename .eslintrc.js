@@ -21,10 +21,12 @@ module.exports = {
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'react/jsx-props-no-spreading': ['off'],
     'func-names': 0,
     'linebreak-style': 0,
     '@typescript-eslint/no-namespace': 0,
     'no-use-before-define': [0],
+    'no-undef': 'off',
     'comma-dangle': [
       'error',
       {
