@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: theme.palette.background.default,
     top: '0',
-    // boxShadow: 'none',
+    boxShadow: 'none',
     height: '90px',
     padding: theme.spacing(3, 2),
     justifyContent: 'center',
@@ -154,7 +154,7 @@ interface NavBarProps {
   appName: string;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
+export const NavBarHomePage: React.FC<NavBarProps> = ({ appName }) => {
   const classes = useStyles();
   const [mobileMenu, setMobileMenu] = useState(false);
   const [scrolledDownEnough, setScrolledDownEnough] = useState(false);

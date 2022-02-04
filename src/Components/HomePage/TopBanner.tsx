@@ -1,13 +1,15 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from '../Shared/Components/Link';
+// import { Link } from '../Shared/Components/Link';
 import PL from './assets/pl.png';
 import LaLiga from './assets/laliga2.png';
 import BundesLiga from './assets/bliga.png';
 import Ligue1 from './assets/ligue1.svg';
+import { ModalComponent } from '../Shared/Components/ModalComponent';
+import { SignUpForm } from '../Onboarding/SignUpForm';
 // import SerieA from './assets/seriea.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -109,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     width: 'auto',
     height: 'auto',
-    padding: theme.spacing(1.5, 4),
+    padding: theme.spacing(1, 2),
     fontSize: theme.spacing(1.8),
     borderRadius: '10px',
     marginTop: theme.spacing(1),
@@ -187,11 +189,12 @@ const TopBanner: React.FC = () => {
           Sporty connects everyone who loves football together to chat, banter your friends and know
           what is trending.
         </Typography>
-        <Button className={classes.button}>
+        <ModalComponent buttonTitle="Join Now" content={<SignUpForm />} />
+        {/* <Button className={classes.button}>
           <Link to="/signup" className={classes.text}>
             Join Now
           </Link>
-        </Button>
+        </Button> */}
       </Grid>
       <Grid className={classes.secondEmojiC}>
         <img className={classes.imageBliga} src={BundesLiga} alt="BundesLiga" />

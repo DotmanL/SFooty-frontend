@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 // import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -10,36 +10,39 @@ import {
 } from 'formik';
 import * as yup from 'yup';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Container } from '@material-ui/core';
 import { InputTextField } from '../Shared/Components/InputTextField';
 import { Link } from '../Shared/Components/Link';
 
 const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
-    // background: 'red',
+    // background: 'blue',
     flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
+    width: 'auto',
     minHeight: '100vh',
-    margin: theme.spacing(6, 10, 2, 10),
-    padding: theme.spacing(2, 0, 2, 0),
+    marginRight: 'auto',
+    marginLeft: 'auto',
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(4, 0, 2, 0),
+      margin: theme.spacing(2, 0, 2, 0),
       display: 'flex',
       flexDirection: 'column',
-      minHeight: '100vh',
+      // minHeight: '100vh',
     },
   },
   formMain: {
     padding: theme.spacing(5, 5),
     borderRadius: '15px',
     width: 'auto',
-    // backgroundColor: 'whitesmoke',
+    backgroundColor: 'whitesmoke',
+    marginTop: '10px',
     // [theme.breakpoints.down('xl')]: {
     //   width: 'sut',
     // },
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
+      width: '95%',
       borderRadius: '0px',
       padding: theme.spacing(2, 2),
     },
@@ -81,11 +84,13 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     background: theme.palette.primary.main,
-    width: '60%',
+    width: '70%',
     color: 'white',
     marginTop: theme.spacing(1.5),
     alignSelf: 'center',
+    fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.spacing(2.4),
+    padding: theme.spacing(0.5, 0.5),
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.0),
       padding: theme.spacing(2, 2),
@@ -119,7 +124,7 @@ export interface SignUpFormData {
 
 interface SignUpFormProps {
   // visible: boolean;
-  isSubmitting: boolean;
+  isSubmitting?: boolean;
   // onFormSubmitted: (data: SignUpFormData) => any;
 }
 
@@ -161,8 +166,8 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
         {({
           errors, touched, isSubmitting, values, handleChange,
         }): React.ReactNode => (
-          <Grid className={classes.main}>
-            <Paper elevation={5} className={classes.formMain}>
+          <Container className={classes.main}>
+            <Paper elevation={2} className={classes.formMain}>
               <Typography variant="h2" className={classes.header}>
                 Create an account
               </Typography>
@@ -274,7 +279,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                 </Button>
               </Form>
             </Paper>
-          </Grid>
+          </Container>
         )}
       </Formik>
     </>

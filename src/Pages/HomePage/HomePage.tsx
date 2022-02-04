@@ -6,8 +6,8 @@ import Spiral from './assets/spiralbg.svg';
 import TopBanner from '../../Components/HomePage/TopBanner';
 import SecondBanner from '../../Components/HomePage/SecondBanner';
 import ThirdBanner from '../../Components/HomePage/ThirdBanner';
-import { NavBar } from '../../Components/Shared/Components/NavBar';
 import Footer from '../../Components/Shared/Components/Footer';
+import { NavBarHomePage } from '../../Components/Shared/Components/NavBarHomePage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
   const classes = useStyles();
   return (
     <Container maxWidth="xl" className={classes.root}>
-      <NavBar appName="Sporty" />
+      <NavBarHomePage appName="Sporty" />
       <TopBanner />
       <SecondBanner />
       <ThirdBanner />
