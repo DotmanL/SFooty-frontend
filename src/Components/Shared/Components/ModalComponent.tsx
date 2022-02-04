@@ -25,18 +25,20 @@ const useStyles = makeStyles((theme) => ({
   containerStyle: {
     position: 'absolute' as 'absolute',
     marginTop: '5vh',
-    // background: 'red',
-    left: '30%',
+    background: 'red',
+    left: '30vw',
+
     // transform: 'translate(-50%, -50%)',
-    width: '40%',
+    // width: '40%',
     height: 'auto',
     // border: '2px solid #000',
     boxShadow: '24',
     padding: theme.spacing(0, 0, 0, 0),
     p: '4',
     [theme.breakpoints.down('sm')]: {
-      left: '5vw',
-      width: '90vw',
+      marginTop: '0vh',
+      left: '2vw',
+      // width: '98vw',
     },
   },
   button: {

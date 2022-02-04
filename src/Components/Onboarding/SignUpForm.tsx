@@ -42,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
     //   width: 'sut',
     // },
     [theme.breakpoints.down('sm')]: {
-      width: '95%',
-      borderRadius: '0px',
+      width: '98%',
       padding: theme.spacing(2, 2),
     },
   },
@@ -52,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(3.6),
     fontWeight: theme.typography.fontWeightBold,
     [theme.breakpoints.down('sm')]: {
-      fontSize: theme.spacing(2.8),
+      fontSize: theme.spacing(2.4),
     },
   },
   formContainer: {
