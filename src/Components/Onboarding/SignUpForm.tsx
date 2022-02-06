@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '0px',
     [theme.breakpoints.down('sm')]: {
       width: '98%',
-      padding: theme.spacing(2, 2),
+      padding: theme.spacing(1.5, 1.5),
     },
   },
   header: {
