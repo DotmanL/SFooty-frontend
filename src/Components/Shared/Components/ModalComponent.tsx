@@ -60,9 +60,9 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.down('lg'));
-  const tablet = useMediaQuery(theme.breakpoints.down('sm'));
-  const mobile = useMediaQuery(theme.breakpoints.down('xs'));
+  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const tablet = useMediaQuery(theme.breakpoints.up('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.up('xs'));
 
   const handleClickOpen = () => {
     setOpen(true);

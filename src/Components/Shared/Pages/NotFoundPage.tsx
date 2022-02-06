@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 // import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 // import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Helmet } from 'react-helmet';
 import ErrImage from './assets/2456051.jpg';
 // import ErrText from './assets/404.png';
 import { Link } from '../Components/Link';
@@ -80,6 +81,9 @@ export const NotFoundPage: React.FC = () => {
   return (
     <>
       <Container maxWidth="xl" className={classes.contentOffset}>
+        <Helmet>
+          <title>404: This page cannot be found - Sporty</title>
+        </Helmet>
         <NavBar appName="Sporty" />
         <img src={ErrImage} alt="404i" className={classes.image} />
         <a className={classes.credit} href="https://www.freepik.com/vectors/business">

@@ -34,9 +34,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     padding: theme.spacing(2, 12),
     marginTop: theme.spacing(4),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(2, 7),
+    },
     [theme.breakpoints.down('sm')]: {
       marginTop: theme.spacing(2.5),
-      padding: theme.spacing(2, 2),
+      padding: theme.spacing(2, 3),
     },
   },
 
