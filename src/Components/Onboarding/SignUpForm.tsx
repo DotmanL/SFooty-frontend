@@ -17,30 +17,27 @@ import { Link } from '../Shared/Components/Link';
 const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
-    // background: 'blue',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     width: 'auto',
     minHeight: '100vh',
-    marginRight: 'auto',
-    marginLeft: 'auto',
+    padding: theme.spacing(0),
+    marginTop: theme.spacing(0),
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(2, 0, 2, 0),
+      margin: theme.spacing(1.5, 0, 2, 0),
       display: 'flex',
+      padding: theme.spacing(0, 0.5),
       flexDirection: 'column',
-      // minHeight: '100vh',
+      minHeight: '100vh',
     },
   },
   formMain: {
-    padding: theme.spacing(5, 5),
+    padding: theme.spacing(2.5, 5),
     borderRadius: '15px',
     width: 'auto',
     backgroundColor: 'whitesmoke',
-    marginTop: '10px',
-    // [theme.breakpoints.down('xl')]: {
-    //   width: 'sut',
-    // },
+    marginTop: '0px',
     [theme.breakpoints.down('sm')]: {
       width: '98%',
       padding: theme.spacing(2, 2),
@@ -49,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     color: theme.palette.primary.main,
     fontSize: theme.spacing(3.6),
+    marginTop: theme.spacing(0),
     fontWeight: theme.typography.fontWeightBold,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.4),
@@ -68,14 +66,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   terms: {
-    fontSize: theme.spacing(2.4),
+    fontSize: theme.spacing(2.0),
     marginTop: theme.spacing(1.5),
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
     },
   },
   links: {
-    fontSize: theme.spacing(2.4),
+    fontSize: theme.spacing(2.0),
     color: theme.palette.primary.main,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
@@ -83,10 +81,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     background: theme.palette.primary.main,
-    width: '70%',
+    width: '90%',
     color: 'white',
     marginTop: theme.spacing(1.5),
     alignSelf: 'center',
+    borderRadius: '20px',
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.spacing(2.4),
     padding: theme.spacing(0.5, 0.5),
@@ -264,6 +263,16 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                     <Link className={classes.links} to="/terms">
                       {' '}
                       Terms & Conditions
+                      {' '}
+                    </Link>
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography className={classes.terms} variant="h5">
+                    Already have an account?
+                    <Link className={classes.links} to="/signin">
+                      {' '}
+                      Sign In
                       {' '}
                     </Link>
                   </Typography>

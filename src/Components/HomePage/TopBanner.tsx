@@ -8,8 +8,9 @@ import PL from './assets/pl.png';
 import LaLiga from './assets/laliga2.png';
 import BundesLiga from './assets/bliga.png';
 import Ligue1 from './assets/ligue1.svg';
-import { ModalComponent } from '../Shared/Components/ModalComponent';
+import { CustomizedDialogs } from '../Shared/Components/ModalComponent';
 import { SignUpForm } from '../Onboarding/SignUpForm';
+// import { SignUpForm } from '../Onboarding/SignUpForm';
 // import SerieA from './assets/seriea.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -189,7 +190,8 @@ const TopBanner: React.FC = () => {
           Sporty connects everyone who loves football together to chat, banter your friends and know
           what is trending.
         </Typography>
-        <ModalComponent buttonTitle="Join Now" content={<SignUpForm />} />
+        <CustomizedDialogs buttonTitle="Join Now" component={<SignUpForm />} />
+
         {/* <Button className={classes.button}>
           <Link to="/signup" className={classes.text}>
             Join Now

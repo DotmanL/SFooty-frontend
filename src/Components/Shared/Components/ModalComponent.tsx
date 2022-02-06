@@ -1,45 +1,23 @@
 import React from 'react';
-// import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-// import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import { Button } from '@material-ui/core';
+import {
+  Theme, withStyles, makeStyles, useTheme,
+} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+// import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+// import Grid from '@material-ui/core/Grid';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    // background: 'orange',
-    alignItems: 'center',
-    marginTop: theme.spacing(0),
-    padding: theme.spacing(2, 0, 2, 0),
-    [theme.breakpoints.down('sm')]: {
-      marginTop: theme.spacing(2),
-      display: 'flex',
-      flexDirection: 'column',
-    },
-  },
-  containerStyle: {
-    position: 'absolute' as 'absolute',
-    marginTop: '5vh',
-    background: 'red',
-    left: '30vw',
-
-    // transform: 'translate(-50%, -50%)',
-    // width: '40%',
-    height: 'auto',
-    // border: '2px solid #000',
-    boxShadow: '24',
-    padding: theme.spacing(0, 0, 0, 0),
-    p: '4',
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '0vh',
-      left: '2vw',
-      // width: '98vw',
-    },
+  closeButton: {
+    position: 'absolute',
+    left: theme.spacing(1),
+    top: theme.spacing(0),
+    color: theme.palette.grey[500],
+    [theme.breakpoints.down('sm')]: {},
   },
   button: {
     color: theme.palette.background.default,
@@ -55,31 +33,100 @@ const useStyles = makeStyles((theme) => ({
       opacity: 0.9,
     },
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(0.8, 1),
-      fontSize: theme.spacing(1.2),
+      fontSize: theme.spacing(1.4),
+      padding: theme.spacing(0.5, 0.8),
     },
   },
 }));
 
-interface ModalComponentProps {
+const DialogContent = withStyles((theme: Theme) => ({
+  root: {
+    padding: theme.spacing(1),
+    margin: '0px',
+    height: 'auto',
+    overflowY: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'cenetr',
+  },
+}))(MuiDialogContent);
+
+export interface CustomizedDialogsProps {
+  component: React.ReactNode;
   buttonTitle: string;
-  content: any;
 }
 
-export const ModalComponent: React.FC<ModalComponentProps> = ({ buttonTitle, content }) => {
+export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component, buttonTitle }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const theme = useTheme();
+  const desktop = useMediaQuery(theme.breakpoints.down('lg'));
+  const tablet = useMediaQuery(theme.breakpoints.down('sm'));
+  const mobile = useMediaQuery(theme.breakpoints.down('xs'));
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Container maxWidth="xl" className={classes.main}>
-      <Button className={classes.button} onClick={handleOpen}>
+    <>
+      <Button
+        className={classes.button}
+        variant="outlined"
+        color="primary"
+        onClick={handleClickOpen}
+      >
         {buttonTitle}
       </Button>
-      <Modal open={open} onClose={handleClose}>
-        <Grid className={classes.containerStyle}>{content}</Grid>
-      </Modal>
-    </Container>
+      {desktop && (
+        <Dialog
+          fullScreen
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+          // style={{ overflowY: 'scroll' }}
+        >
+          <DialogContent>
+            <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
+              <CloseIcon />
+            </IconButton>
+            {component}
+          </DialogContent>
+        </Dialog>
+      )}
+      {tablet && (
+        <Dialog
+          fullScreen
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+        >
+          <DialogContent>
+            <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
+              <CloseIcon />
+            </IconButton>
+            {component}
+          </DialogContent>
+        </Dialog>
+      )}
+      {mobile && (
+        <Dialog
+          fullScreen
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+        >
+          <DialogContent>
+            <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
+              <CloseIcon />
+            </IconButton>
+            {component}
+          </DialogContent>
+        </Dialog>
+      )}
+    </>
   );
 };

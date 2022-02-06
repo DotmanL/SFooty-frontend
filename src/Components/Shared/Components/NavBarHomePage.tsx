@@ -14,14 +14,14 @@ import Logo from './assets/logo192.png';
 const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
-    background: theme.palette.background.default,
+    background: 'none',
     top: '0',
     boxShadow: 'none',
     height: '90px',
     padding: theme.spacing(3, 2),
     justifyContent: 'center',
     [theme.breakpoints.down('sm')]: {
-      height: '70px',
+      height: '60px',
       padding: theme.spacing(2, 0),
       borderBottom: '2px solid white',
     },
@@ -144,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 5px 5px -2px rgba(0, 0, 0, 0.2)',
     marginTop: theme.spacing(-0.1),
     [theme.breakpoints.down('sm')]: {
-      height: '70px',
+      height: '60px',
       padding: theme.spacing(3, 0),
     },
   },
