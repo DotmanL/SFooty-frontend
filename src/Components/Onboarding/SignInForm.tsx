@@ -9,7 +9,6 @@ import {
   Formik, Form, Field, FormikHelpers,
 } from 'formik';
 import * as yup from 'yup';
-import MenuItem from '@material-ui/core/MenuItem';
 import { Container } from '@material-ui/core';
 import { InputTextField } from '../Shared/Components/InputTextField';
 import { Link } from '../Shared/Components/Link';
@@ -25,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0),
     marginTop: theme.spacing(0),
     [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(3.5, 0, 2, 0),
+      margin: theme.spacing(1.5, 0, 2, 0),
       display: 'flex',
       padding: theme.spacing(0, 2),
       flexDirection: 'column',
@@ -72,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
   terms: {
     fontSize: theme.spacing(2.0),
     marginTop: theme.spacing(1.5),
-    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
     },
@@ -80,7 +78,6 @@ const useStyles = makeStyles((theme) => ({
   links: {
     fontSize: theme.spacing(2.0),
     color: theme.palette.primary.main,
-    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
     },
@@ -105,54 +102,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const validationSchema = yup.object().shape({
-  userName: yup.string().required('User Name is required'),
   email: yup.string().email('Enter a valid email').required('Email is required'),
   password: yup
     .string()
     .min(8, 'Password should be of minimum 8 characters length')
     .required('Password is required'),
-  club: yup.string().required('Club selection is required'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'The passwords you entered do not match')
-    .required(''),
 });
 
-export interface SignUpFormData {
-  userName: string;
+export interface SignInFormData {
   email: string;
   password: string;
-  club: string;
-  confirmPassword: string;
 }
 
-interface SignUpFormProps {
+interface SignInFormProps {
   // visible: boolean;
   isSubmitting?: boolean;
   // onFormSubmitted: (data: SignUpFormData) => any;
 }
 
-// dummy club
-const clubData = [
-  {
-    id: 1,
-    name: 'Manchester United',
-  },
-  {
-    id: 2,
-    name: 'Chelsea',
-  },
-];
-export const SignUpForm: React.FC<SignUpFormProps> = () => {
+export const SignInForm: React.FC<SignInFormProps> = () => {
   const initialValues = {
-    userName: '',
     email: '',
     password: '',
-    club: '',
-    confirmPassword: '',
   };
 
-  const handleSubmit = (values: SignUpFormData, formik: FormikHelpers<SignUpFormData>) => {
+  const handleSubmit = (values: SignInFormData, formik: FormikHelpers<SignInFormData>) => {
     formik.setSubmitting(false);
     // prevent fields from disabling
   };
@@ -173,22 +147,9 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
           <Container className={classes.main}>
             <Paper elevation={2} className={classes.formMain}>
               <Typography variant="h2" className={classes.header}>
-                Create an account
+                Sign in to Sporty
               </Typography>
               <Form className={classes.formContainer}>
-                <Field
-                  className={classes.formControl}
-                  variant="outlined"
-                  id="userName"
-                  name="userName"
-                  label="User Name"
-                  component={InputTextField}
-                  value={values.userName}
-                  onChange={handleChange}
-                  error={touched.userName && Boolean(errors.userName)}
-                  helperText={touched.userName && errors.userName}
-                />
-
                 <Field
                   className={classes.formControl}
                   variant="outlined"
@@ -216,53 +177,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   error={touched.password && Boolean(errors.password)}
                   helperText={touched.password && errors.password}
                 />
-                <Field
-                  className={classes.formControl}
-                  variant="outlined"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  label="Confirm Password"
-                  placeholder="Password"
-                  component={InputTextField}
-                  value={values.confirmPassword}
-                  onChange={handleChange}
-                  error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-                  helperText={touched.confirmPassword && errors.confirmPassword}
-                />
-                <Field
-                  style={{ marginBtoom: '20px' }}
-                  className={classes.formControl}
-                  variant="outlined"
-                  shrink={false}
-                  select
-                  SelectProps={{
-                    MenuProps: {
-                      anchorOrigin: {
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                      },
-                      getContentAnchorEl: null,
-                    },
-                  }}
-                  id="club"
-                  name="club"
-                  label="Select your club"
-                  component={InputTextField}
-                  value={values.club}
-                  onChange={handleChange}
-                  error={touched.club && Boolean(errors.club)}
-                  helperText={touched.club && errors.club}
-                >
-                  {/* <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem> */}
-                  {clubData.map((data) => (
-                    <MenuItem key={data.id} value={data.id}>
-                      {data.name}
-                    </MenuItem>
-                  ))}
-                </Field>
 
                 <Grid
                   item
@@ -270,25 +184,10 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}
                 >
                   <Typography className={classes.terms} variant="h5">
-                    I agree with the
-                    <Link className={classes.links} to="/terms">
+                    New to Sporty?
+                    <Link className={classes.links} to="/signup">
                       {' '}
-                      Terms & Conditions
-                      {' '}
-                    </Link>
-                  </Typography>
-                </Grid>
-
-                <Grid
-                  item
-                  xs={12}
-                  style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}
-                >
-                  <Typography className={classes.terms} variant="h5">
-                    Already have an account?
-                    <Link className={classes.links} to="/signin">
-                      {' '}
-                      Sign In
+                      Sign Up
                       {' '}
                     </Link>
                   </Typography>

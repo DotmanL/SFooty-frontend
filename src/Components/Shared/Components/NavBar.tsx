@@ -203,8 +203,8 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
               <Link to="/" style={{ color: 'black' }} className={classes.text}>
                 Contact us
               </Link>
-              <Link to="/" className={classes.text} style={{ color: '#27AE60' }}>
-                Log in
+              <Link to="/signin" className={classes.text} style={{ color: '#27AE60' }}>
+                Sign in
               </Link>
               <Button className={classes.button}>
                 <Link to="/signup" className={classes.text}>
@@ -221,17 +221,12 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
       </AppBar>
       {mobileMenu && (
         <Navbox>
-          <Link to="/signup">
-            <Typography className={classes.menuText} onClick={handleMobileMenu}>
-              Sign Up
-            </Typography>
-          </Link>
-
-          <Link to="/">
-            <Typography className={classes.menuText} onClick={handleMobileMenu}>
-              Sign In
-            </Typography>
-          </Link>
+          <Typography className={classes.menuText} onClick={handleMobileMenu}>
+            <Link to="/signup">Sign Up</Link>
+          </Typography>
+          <Typography className={classes.menuText} onClick={handleMobileMenu}>
+            <Link to="/signin">Sign In</Link>
+          </Typography>
         </Navbox>
       )}
     </Grid>

@@ -119,7 +119,7 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
           aria-labelledby="customized-dialog-title"
           open={open}
         >
-          <DialogContent>
+          <DialogContent style={{ overflow: 'scroll' }}>
             <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
               <CloseIcon />
             </IconButton>
