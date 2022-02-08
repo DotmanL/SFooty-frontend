@@ -14,7 +14,7 @@ const apiClient = axios.create({
 
 const findAll = async () => {
   const response = await apiClient.get<ApiResponse>('v3/teams');
-  // console.log(response.data);
+  // console.log(response.data.response);
 
   return response.data.response;
 };

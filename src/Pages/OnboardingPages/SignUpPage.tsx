@@ -1,5 +1,5 @@
 import React from 'react';
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 import { Helmet } from 'react-helmet';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'contain',
     },
   },
+  signUpContainer: {
+    marginTop: theme.spacing(0),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(10),
+    },
+  },
 }));
 
 const SignUpPage: React.FC = () => {
@@ -27,7 +33,9 @@ const SignUpPage: React.FC = () => {
         <title>Sign Up - Sporty</title>
       </Helmet>
       <NavBar appName="Sporty" />
-      <SignUpForm isSubmitting={false} />
+      <Grid className={classes.signUpContainer}>
+        <SignUpForm isSubmitting={false} />
+      </Grid>
       <Footer />
     </Container>
   );

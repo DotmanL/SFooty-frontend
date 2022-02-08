@@ -8,7 +8,7 @@ import Dialog from '@material-ui/core/Dialog';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
@@ -60,9 +60,9 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up('lg'));
-  const tablet = useMediaQuery(theme.breakpoints.up('sm'));
-  const mobile = useMediaQuery(theme.breakpoints.up('xs'));
+  const desktop = useMediaQuery(theme.breakpoints.down('lg'));
+  const tablet = useMediaQuery(theme.breakpoints.down('md'));
+  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -93,7 +93,7 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
             <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
               <CloseIcon />
             </IconButton>
-            {component}
+            <Grid>{component}</Grid>
           </DialogContent>
         </Dialog>
       )}
@@ -108,7 +108,7 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
             <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
               <CloseIcon />
             </IconButton>
-            {component}
+            <Grid>{component}</Grid>
           </DialogContent>
         </Dialog>
       )}
@@ -123,7 +123,7 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
             <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
               <CloseIcon />
             </IconButton>
-            {component}
+            <Grid>{component}</Grid>
           </DialogContent>
         </Dialog>
       )}

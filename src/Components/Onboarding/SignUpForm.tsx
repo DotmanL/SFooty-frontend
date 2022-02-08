@@ -32,8 +32,12 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2.5, 0, 2, 0),
       padding: theme.spacing(0, 2),
       flexDirection: 'column',
+      justifyContent: 'flex-start',
       minHeight: '100vh',
     },
+    // [theme.breakpoints.down('md')]: {
+    //   padding: theme.spacing(0, 10),
+    // },
   },
   formMain: {
     padding: theme.spacing(2.5, 5),
@@ -263,7 +267,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   helperText={touched.club && errors.club}
                 >
                   {data?.map((teams) => (
-                    <MenuItem key={teams?.team?.id} value={teams?.team?.id}>
+                    <MenuItem key={teams?.team?.id} value={teams?.team?.name}>
                       {teams?.team?.name}
                     </MenuItem>
                   ))}
