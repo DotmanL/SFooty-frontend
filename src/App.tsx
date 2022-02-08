@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { history } from './history';
 import Spinner from './Components/Shared/Components/Spinner';
 
@@ -51,22 +52,26 @@ const theme = responsiveFontSizes(
     },
   })
 );
+const queryClient = new QueryClient();
 
 const App: React.FC = () => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <Suspense fallback={<Spinner />}>
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/aboutus" component={AboutUsPage} />
-          <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/signin" component={SignInPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Router>
-    </Suspense>
-  </ThemeProvider>
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <Suspense fallback={<Spinner />}>
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/aboutus" component={AboutUsPage} />
+            <Route exact path="/signup" component={SignUpPage} />
+            <Route exact path="/signin" component={SignInPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Router>
+      </Suspense>
+    </ThemeProvider>
+  </QueryClientProvider>
 );
 
 export default App;

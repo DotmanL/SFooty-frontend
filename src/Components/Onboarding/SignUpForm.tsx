@@ -11,8 +11,12 @@ import {
 import * as yup from 'yup';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Container } from '@material-ui/core';
+// import { useQuery } from 'react-query';
 import { InputTextField } from '../Shared/Components/InputTextField';
 import { Link } from '../Shared/Components/Link';
+// import FootballApi from '../api/FootballService';
+// import { Teams } from '../api/types';
+import { data } from '../api/englishclubs';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -89,13 +93,14 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     width: '90%',
     color: 'white',
-    marginTop: theme.spacing(1.5),
+    marginTop: theme.spacing(2),
     alignSelf: 'center',
     borderRadius: '20px',
     fontWeight: theme.typography.fontWeightMedium,
     fontSize: theme.spacing(2.4),
     padding: theme.spacing(0.5, 0.5),
     [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(1.5),
       fontSize: theme.spacing(2.0),
       padding: theme.spacing(2, 2),
       height: '40px',
@@ -132,17 +137,6 @@ interface SignUpFormProps {
   // onFormSubmitted: (data: SignUpFormData) => any;
 }
 
-// dummy club
-const clubData = [
-  {
-    id: 1,
-    name: 'Manchester United',
-  },
-  {
-    id: 2,
-    name: 'Chelsea',
-  },
-];
 export const SignUpForm: React.FC<SignUpFormProps> = () => {
   const initialValues = {
     userName: '',
@@ -157,6 +151,16 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
     // prevent fields from disabling
   };
   const classes = useStyles();
+  // const { isLoading, error, data } =
+  // useQuery<Teams[], Error>('getTeams', async () => FootballApi.findAll());
+
+  // if (isLoading) {
+  //   return <p>Loading....</p>;
+  // }
+  // if (error) {
+  //   return <p>{(error as Error)?.message}</p>;
+  // }
+
   // if (!visible) {
   //   return null;
   // }
@@ -171,7 +175,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
           errors, touched, isSubmitting, values, handleChange,
         }): React.ReactNode => (
           <Container className={classes.main}>
-            <Paper elevation={2} className={classes.formMain}>
+            <Paper elevation={4} className={classes.formMain}>
               <Typography variant="h2" className={classes.header}>
                 Create an account
               </Typography>
@@ -210,6 +214,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   type="password"
                   label="Password"
                   placeholder="Password"
+                  autoComplete="on"
                   component={InputTextField}
                   value={values.password}
                   onChange={handleChange}
@@ -222,6 +227,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
+                  autoComplete="on"
                   label="Confirm Password"
                   placeholder="Password"
                   component={InputTextField}
@@ -231,15 +237,18 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   helperText={touched.confirmPassword && errors.confirmPassword}
                 />
                 <Field
-                  style={{ marginBtoom: '20px' }}
                   className={classes.formControl}
                   variant="outlined"
-                  shrink={false}
+                  // shrink="false"
                   select
                   SelectProps={{
                     MenuProps: {
                       anchorOrigin: {
                         vertical: 'bottom',
+                        horizontal: 'left',
+                      },
+                      transformOrigin: {
+                        vertical: 'top',
                         horizontal: 'left',
                       },
                       getContentAnchorEl: null,
@@ -254,16 +263,12 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   error={touched.club && Boolean(errors.club)}
                   helperText={touched.club && errors.club}
                 >
-                  {/* <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem> */}
-                  {clubData.map((data) => (
-                    <MenuItem key={data.id} value={data.id}>
-                      {data.name}
+                  {data?.map((teams) => (
+                    <MenuItem key={teams?.team?.id} value={teams?.team?.id}>
+                      {teams?.team?.name}
                     </MenuItem>
                   ))}
                 </Field>
-
                 <Grid
                   item
                   xs={12}

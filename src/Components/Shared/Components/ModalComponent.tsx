@@ -47,7 +47,7 @@ const DialogContent = withStyles((theme: Theme) => ({
     overflowY: 'hidden',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'cenetr',
+    alignItems: 'center',
   },
 }))(MuiDialogContent);
 

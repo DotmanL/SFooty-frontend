@@ -6,11 +6,16 @@ import { Helmet } from 'react-helmet';
 import { SignInForm } from '../../Components/Onboarding/SignInForm';
 import { NavBar } from '../../Components/Shared/Components/NavBar';
 import Footer from '../../Components/Shared/Components/Footer';
+import ScatteredFields from './assets/scattered-forcefields.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(0, 0, 0, 0),
-    [theme.breakpoints.down('sm')]: {},
+    backgroundImage: `url(${ScatteredFields})`,
+    marginTop: theme.spacing(3),
+    [theme.breakpoints.down('sm')]: {
+      backgroundSize: 'contain',
+    },
   },
 }));
 

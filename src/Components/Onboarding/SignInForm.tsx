@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   formMain: {
-    padding: theme.spacing(2.5, 5),
+    padding: theme.spacing(6, 5),
     borderRadius: '15px',
     border: '1px solid',
     borderColor: theme.palette.primary.main,
@@ -41,12 +41,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '0px',
     [theme.breakpoints.down('sm')]: {
       width: '98%',
-      padding: theme.spacing(1.5, 1.5),
+      padding: theme.spacing(4, 4),
       border: '0.5px solid',
       borderColor: theme.palette.primary.main,
     },
   },
   header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
     color: theme.palette.primary.main,
     fontSize: theme.spacing(3.6),
     marginTop: theme.spacing(0),
@@ -59,8 +62,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    marginTop: theme.spacing(2),
     // background: 'yellow',
     padding: theme.spacing(0, 0),
+    [theme.breakpoints.down('sm')]: {
+      marginTop: theme.spacing(1),
+    },
   },
   formControl: {
     marginTop: theme.spacing(1.5),
@@ -86,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     width: '90%',
     color: 'white',
-    marginTop: theme.spacing(1.5),
+    marginTop: theme.spacing(2),
     alignSelf: 'center',
     borderRadius: '20px',
     fontWeight: theme.typography.fontWeightMedium,
@@ -94,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0.5, 0.5),
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.0),
+      marginTop: theme.spacing(1.5),
       padding: theme.spacing(2, 2),
       height: '40px',
       width: '60%',
@@ -145,7 +153,7 @@ export const SignInForm: React.FC<SignInFormProps> = () => {
           errors, touched, isSubmitting, values, handleChange,
         }): React.ReactNode => (
           <Container className={classes.main}>
-            <Paper elevation={2} className={classes.formMain}>
+            <Paper elevation={4} className={classes.formMain}>
               <Typography variant="h2" className={classes.header}>
                 Sign in to Sporty
               </Typography>
@@ -198,7 +206,7 @@ export const SignInForm: React.FC<SignInFormProps> = () => {
                   variant="contained"
                   className={classes.button}
                 >
-                  Sign Up
+                  Sign In
                 </Button>
               </Form>
             </Paper>
