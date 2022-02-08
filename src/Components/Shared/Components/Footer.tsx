@@ -4,24 +4,37 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import { Link } from './Link';
-// import Footer from
+import Spiral from './assets/spiralfooter.svg';
 
 const useStyles = makeStyles((theme) => ({
-  main: {
+  container: {
     display: 'flex',
     bottom: 0,
     left: 0,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     background: theme.palette.primary.main,
     color: 'white',
     width: '100%',
     height: '400px',
-    padding: theme.spacing(10, 6),
+    padding: theme.spacing(10, 0, 0, 6),
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(0),
     [theme.breakpoints.down('sm')]: {
-      marginTop: 'auto',
+      padding: theme.spacing(3, 0, 2, 2),
+      flexDirection: 'row',
+      bottom: 0,
+      left: 0,
+    },
+  },
+  main: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    background: theme.palette.primary.main,
+    color: 'white',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(3, 0, 2, 2),
       flexDirection: 'column',
       bottom: 0,
@@ -63,39 +76,68 @@ const useStyles = makeStyles((theme) => ({
       fontSize: theme.spacing(2.0),
     },
   },
+  spiralContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  spiralDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  },
+  spiralImage: {
+    [theme.breakpoints.down('sm')]: {
+      width: theme.spacing(10),
+      height: theme.spacing(15),
+    },
+  },
 }));
 
 const Footer: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <Container maxWidth="xl" className={classes.main}>
-        <Grid className={classes.firstColumn}>
-          <Typography className={classes.title} variant="h2">
-            Sporty
-          </Typography>
-        </Grid>
-        <Grid className={classes.otherColumns}>
-          <Typography className={classes.headers} variant="h3">
-            Company
-          </Typography>
-          <Link className={classes.links} to="/aboutus">
-            About us
-          </Link>
+      <Container maxWidth="xl" className={classes.container}>
+        <Grid className={classes.main}>
+          <Grid className={classes.firstColumn}>
+            <Typography className={classes.title} variant="h2">
+              Sporty
+            </Typography>
+          </Grid>
+          <Grid className={classes.otherColumns}>
+            <Typography className={classes.headers} variant="h3">
+              Company
+            </Typography>
+            <Link className={classes.links} to="/aboutus">
+              About us
+            </Link>
 
-          {/* Change links */}
-          <Link className={classes.links} to="/faq">
-            FAQs
-          </Link>
+            {/* Change links */}
+            <Link className={classes.links} to="/faq">
+              FAQs
+            </Link>
+          </Grid>
+          <Grid className={classes.otherColumns}>
+            <Typography className={classes.headers} variant="h4">
+              Get in touch
+            </Typography>
+            {/* Change links */}
+            <Link className={classes.links} to="/contact-us">
+              Contact us
+            </Link>
+          </Grid>
         </Grid>
-        <Grid className={classes.otherColumns}>
-          <Typography className={classes.headers} variant="h4">
-            Get in touch
-          </Typography>
-          {/* Change links */}
-          <Link className={classes.links} to="/contact-us">
-            Contact us
-          </Link>
+        <Grid className={classes.spiralContainer}>
+          <Grid className={classes.spiralDiv}>
+            <img src={Spiral} className={classes.spiralImage} alt="spiralanchor" />
+          </Grid>
         </Grid>
       </Container>
     </>
