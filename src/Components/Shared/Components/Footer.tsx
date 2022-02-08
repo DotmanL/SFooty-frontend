@@ -35,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     width: '100%',
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(3, 0, 2, 2),
       flexDirection: 'column',
       bottom: 0,
       left: 0,
