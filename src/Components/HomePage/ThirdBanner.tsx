@@ -178,8 +178,8 @@ const ThirdBanner: React.FC = () => {
       <Grid className={classes.main}>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
-            We’re Here To
-            <div> Make Your Life Easier.</div>
+            Fun + Connection
+            <div> with football fans.</div>
           </Typography>
           <Typography className={classes.subText} variant="h4">
             We created Sporty because we want
@@ -198,11 +198,11 @@ const ThirdBanner: React.FC = () => {
         </Grid>
         <Grid className={classes.contactContainer}>
           <Typography className={classes.introText} variant="h2">
-            Say Hi
+            😉
           </Typography>
           <Typography className={classes.subText} variant="h4">
-            We’ll be happy to answer all your questions or
-            <div>inquiries, feel free to say Hello.</div>
+            You can contact us via the following accounts
+            {/* <div>inquiries, feel free to say Hello.</div> */}
           </Typography>
           <Grid className={classes.contactButtonsContainer}>
             <Grid className={classes.contactButton}>

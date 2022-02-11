@@ -114,7 +114,7 @@ const SecondBanner: React.FC = () => {
       <Grid className={classes.main}>
         <Grid className={classes.textContainer}>
           <Typography className={classes.introText} variant="h2">
-            Get to know us.
+            What&#39;s sporty all about?
           </Typography>
           <Typography className={classes.subText} variant="h4">
             Sporty is a social media site, and its primary purpose is to connect people and allow
