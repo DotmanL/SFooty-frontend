@@ -44,7 +44,6 @@ const DialogContent = withStyles((theme: Theme) => ({
     padding: theme.spacing(1),
     margin: '0px',
     height: 'auto',
-    overflowY: 'hidden',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -89,7 +88,7 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
           open={open}
   
         >
-          <DialogContent style={{ overflowY: 'scroll' }}>
+          <DialogContent style={{ overflow-y: 'scroll' }}>
             <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
               <CloseIcon />
             </IconButton>
@@ -105,7 +104,7 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
           open={open}
       
         >
-          <DialogContent style={{ overflowY: 'scroll' }}>
+          <DialogContent style={{ overflow-y: 'scroll' }}>
             <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
               <CloseIcon />
             </IconButton>
