@@ -26,6 +26,19 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: '2px solid white',
     },
   },
+  appBarHomePage: {
+    background: theme.palette.background.default,
+    top: '0',
+    boxShadow: 'none',
+    height: '90px',
+    padding: theme.spacing(3, 2),
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      height: '60px',
+      padding: theme.spacing(2, 0),
+      borderBottom: '2px solid white',
+    },
+  },
   titleContainer: {
     display: 'flex',
 
@@ -152,14 +165,18 @@ const useStyles = makeStyles((theme) => ({
 
 interface NavBarProps {
   appName: string;
+  isHomePage?: boolean;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
+export const NavBar: React.FC<NavBarProps> = ({ appName, isHomePage }) => {
   const classes = useStyles();
   const [mobileMenu, setMobileMenu] = useState(false);
   const [scrolledDownEnough, setScrolledDownEnough] = useState(false);
+  const [homePage, setHomePage] = useState(false);
 
-  const handleMobileMenu = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+  const handleMobileMenu = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
     event.preventDefault();
     setMobileMenu(!mobileMenu);
   };
@@ -167,10 +184,16 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
   useEffect(() => {
     const handleScroll = () => {
       // eslint-disable-next-line operator-linebreak
-      const bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const bodyScrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
       // eslint-disable-next-line no-shadow
       const scrolledDown = bodyScrollTop > 120;
       setScrolledDownEnough(scrolledDown);
+      if (isHomePage === true) {
+        setHomePage(true);
+      } else {
+        setHomePage(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -185,6 +208,7 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
         className={classnames({
           [classes.new]: scrolledDownEnough,
           [classes.appBar]: !scrolledDownEnough,
+          [classes.appBarHomePage]: homePage,
         })}
       >
         <Toolbar className={classes.toolbar}>
@@ -203,7 +227,11 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
               <Link to="/" style={{ color: 'black' }} className={classes.text}>
                 Contact us
               </Link>
-              <Link to="/signin" className={classes.text} style={{ color: '#27AE60' }}>
+              <Link
+                to="/signin"
+                className={classes.text}
+                style={{ color: '#27AE60' }}
+              >
                 Sign in
               </Link>
               <Button className={classes.button}>
@@ -214,7 +242,10 @@ export const NavBar: React.FC<NavBarProps> = ({ appName }) => {
             </Grid>
           </Grid>
 
-          <IconButton className={classes.menuIconDiv} onClick={handleMobileMenu}>
+          <IconButton
+            className={classes.menuIconDiv}
+            onClick={handleMobileMenu}
+          >
             {mobileMenu ? <Hamburger open /> : <Hamburger />}
           </IconButton>
         </Toolbar>

@@ -141,12 +141,13 @@ const useStyles = makeStyles((theme) => ({
   contactButton: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     background: theme.palette.primary.main,
     padding: theme.spacing(1.2, 2.5),
     borderRadius: theme.spacing(1.5),
     margin: theme.spacing(0.5, 0.5),
+    width: 'auto',
     color: theme.palette.background.default,
     fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down('sm')]: {
@@ -158,15 +159,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(2.4),
     color: 'white',
     fontWeight: theme.typography.fontWeightLight,
-    margin: theme.spacing(0, 1),
+
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
     },
   },
   socialImage: {
+    marginRight: theme.spacing(1),
     [theme.breakpoints.down('sm')]: {
       width: '20px',
       height: '20px',
+      marginRight: theme.spacing(0.5),
     },
   },
 }));
@@ -193,7 +196,11 @@ const ThirdBanner: React.FC = () => {
             <img className={classes.lSpiral} src={Lspiral} alt="football" />
           </Grid>
           <Grid className={classes.rightPolygon}>
-            <img className={classes.yellowPolygon} src={YellowPolygon} alt="redP" />
+            <img
+              className={classes.yellowPolygon}
+              src={YellowPolygon}
+              alt="redP"
+            />
           </Grid>
         </Grid>
         <Grid className={classes.contactContainer}>
@@ -206,20 +213,34 @@ const ThirdBanner: React.FC = () => {
           </Typography>
           <Grid className={classes.contactButtonsContainer}>
             <Grid className={classes.contactButton}>
-              <img className={classes.socialImage} src={Email} alt="Email" />
+              <Grid>
+                <img className={classes.socialImage} src={Email} alt="Email" />
+              </Grid>
               <Link to="/email-link" className={classes.buttonText}>
                 Email
               </Link>
             </Grid>
             <Grid className={classes.socialMedia}>
               <Grid className={classes.contactButton}>
-                <img className={classes.socialImage} src={Instagram} alt="Instagram" />
-                <Link to="/instagram" className={classes.buttonText} variant="h5">
+                <img
+                  className={classes.socialImage}
+                  src={Instagram}
+                  alt="Instagram"
+                />
+                <Link
+                  to="/instagram"
+                  className={classes.buttonText}
+                  variant="h5"
+                >
                   Instagram
                 </Link>
               </Grid>
               <Grid className={classes.contactButton}>
-                <img className={classes.socialImage} src={Twitter} alt="Twitter" />
+                <img
+                  className={classes.socialImage}
+                  src={Twitter}
+                  alt="Twitter"
+                />
                 <Link to="/twitter" className={classes.buttonText} variant="h5">
                   Twitter
                 </Link>

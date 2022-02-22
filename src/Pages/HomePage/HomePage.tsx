@@ -8,7 +8,7 @@ import TopBanner from '../../Components/HomePage/TopBanner';
 import SecondBanner from '../../Components/HomePage/SecondBanner';
 import ThirdBanner from '../../Components/HomePage/ThirdBanner';
 import Footer from '../../Components/Shared/Components/Footer';
-import { NavBarHomePage } from '../../Components/Shared/Components/NavBarHomePage';
+import { NavBar } from '../../Components/Shared/Components/NavBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
       <Helmet>
         <title>Sporty</title>
       </Helmet>
-      <NavBarHomePage appName="Sporty" />
+      <NavBar isHomePage appName="Sporty" />
       <TopBanner />
       <SecondBanner />
       <ThirdBanner />
