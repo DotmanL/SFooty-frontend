@@ -4,13 +4,14 @@ import Grid from '@material-ui/core/Grid';
 // import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 // import { Link } from '../Shared/Components/Link';
+import { toast } from 'react-toastify';
 import PL from './assets/pl.png';
 import LaLiga from './assets/laliga2.png';
 import BundesLiga from './assets/bliga.png';
 import Ligue1 from './assets/ligue1.svg';
 import { CustomizedDialogs } from '../Shared/Components/ModalComponent';
-import { SignUpForm } from '../Onboarding/SignUpForm';
-// import { SignUpForm } from '../Onboarding/SignUpForm';
+import { SignUpForm, SignUpFormData } from '../Onboarding/SignUpForm';
+import users from '../api/users';
 // import SerieA from './assets/seriea.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -175,6 +176,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const onFormSubmitted = async (formData: SignUpFormData) => {
+  try {
+    await users.apiClient.post<SignUpFormData>('/api/users/signup', formData);
+    toast.success('Account Created');
+  } catch (err: any) {
+    const { errors } = err.response.data;
+    if (errors) {
+      errors.map((error: any) => toast.error(error.msg));
+    }
+  }
+};
+
 const TopBanner: React.FC = () => {
   const classes = useStyles();
   return (
@@ -193,7 +206,10 @@ const TopBanner: React.FC = () => {
           Sporty connects everyone who loves football together to chat, banter your friends and know
           what is trending.
         </Typography>
-        <CustomizedDialogs buttonTitle="Join Now" component={<SignUpForm />} />
+        <CustomizedDialogs
+          buttonTitle="Join Now"
+          component={<SignUpForm isSubmitting={false} onFormSubmitted={onFormSubmitted} visible />}
+        />
 
         {/* <Button className={classes.button}>
           <Link to="/signup" className={classes.text}>

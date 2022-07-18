@@ -1,11 +1,13 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ToastContainer, Zoom } from 'react-toastify';
 import { history } from './history';
 import Spinner from './Components/Shared/Components/Spinner';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
 const SignUpPage = lazy(() => import('./Pages/OnboardingPages/SignUpPage'));
@@ -13,8 +15,12 @@ const SignInPage = lazy(() => import('./Pages/OnboardingPages/SignInPage'));
 const AboutUsPage = lazy(() => import('./Pages/AboutUsPage/AboutUsPage'));
 const NotFoundPage = lazy(() => import('./Components/Shared/Pages/NotFoundPage'));
 
+const styles = {
+  marginTop: '80px',
+};
+
 const theme = responsiveFontSizes(
-  createMuiTheme({
+  createTheme({
     palette: {
       background: {
         default: '#ffffff',
@@ -58,7 +64,7 @@ const App: React.FC = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
+      <ToastContainer style={styles} closeOnClick transition={Zoom} />
       <Suspense fallback={<Spinner />}>
         <Router history={history}>
           <Switch>

@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: '#27AE60',
     fontSize: '72px',
-    fontWeight: theme.typography.fontWeightLight,
+    // fontWeight: theme.typography.fontWeightLight,
+    fontWeight: 300,
     textAlign: 'center',
   },
   credit: {

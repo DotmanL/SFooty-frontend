@@ -21,6 +21,7 @@ module.exports = {
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+      "react/require-default-props": "off",
     'react/jsx-props-no-spreading': ['off'],
     'func-names': 0,
     'linebreak-style': 0,

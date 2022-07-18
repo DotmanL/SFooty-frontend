@@ -3,10 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import { Helmet } from 'react-helmet';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { SignUpForm } from '../../Components/Onboarding/SignUpForm';
+import { toast } from 'react-toastify';
+import { SignUpForm, SignUpFormData } from '../../Components/Onboarding/SignUpForm';
 import { NavBar } from '../../Components/Shared/Components/NavBar';
 import Footer from '../../Components/Shared/Components/Footer';
 import ScatteredFields from './assets/scattered-forcefields.svg';
+import users from '../../Components/api/users';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +27,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const onFormSubmitted = async (formData: SignUpFormData) => {
+  try {
+    await users.apiClient.post<SignUpFormData>('/api/users/signup', formData);
+    toast.success('Account Created');
+  } catch (err: any) {
+    const { errors } = err.response.data;
+    if (errors) {
+      errors.map((error: any) => toast.error(error.msg));
+    }
+  }
+};
+
 const SignUpPage: React.FC = () => {
   const classes = useStyles();
   return (
@@ -34,7 +48,7 @@ const SignUpPage: React.FC = () => {
       </Helmet>
       <NavBar appName="Sporty" />
       <Grid className={classes.signUpContainer}>
-        <SignUpForm isSubmitting={false} />
+        <SignUpForm isSubmitting={false} onFormSubmitted={onFormSubmitted} visible />
       </Grid>
       <Footer />
     </Container>

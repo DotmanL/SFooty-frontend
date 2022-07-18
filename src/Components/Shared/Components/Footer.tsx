@@ -45,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   title: {
-    fontWeight: theme.typography.fontWeightBold,
+    // fontWeight: theme.typography.fontWeightBold,
+    fontWeight: 900,
     fontSize: theme.spacing(4.8),
     justifySelf: 'center',
     marginTop: theme.spacing(5),
@@ -56,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
   },
   headers: {
     fontSize: theme.spacing(3.2),
-    fontWeight: theme.typography.fontWeightMedium,
+    fontWeight: 600,
+    // fontWeight: theme.typography.fontWeightMedium,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.4),
     },

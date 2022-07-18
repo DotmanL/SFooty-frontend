@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
 
 export interface Props {
   onClick: () => void;
-  open: boolean;
+ // open: boolean;
 }
 
-export const CloseIconComponent: React.FC<Props> = ({ onClick, open }) => {
+export const CloseIconComponent: React.FC<Props> = ({ onClick }) => {
   const classes = useStyles();
 
   return (
-    <Grid className={classes.dialogClose} {...open}>
+    <Grid className={classes.dialogClose}>
       <IconButton {...onClick} aria-label="close" className={classes.closeButton}>
         <CloseIcon />
       </IconButton>

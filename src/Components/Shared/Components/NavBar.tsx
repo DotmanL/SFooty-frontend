@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   appBar: {
     background: theme.palette.background.default,
+    // background: 'red',
     top: '0',
-    // boxShadow: 'none',
+    boxShadow: 'none',
     height: '90px',
     padding: theme.spacing(3, 2),
     justifyContent: 'center',
@@ -136,7 +137,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 1.8),
     color: theme.palette.background.default,
     fontFamily: 'Montserrat',
-    fontWeight: theme.typography.fontWeightMedium,
+    // fontWeight: theme.typography.fontWeightMedium,
+    fontWeight: 600,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
       margin: theme.spacing(0, 1.4),
@@ -149,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
   },
   new: {
     backgroundColor: theme.palette.background.default,
+    // background: 'green',
     top: '0',
     color: 'black',
     height: '90px',

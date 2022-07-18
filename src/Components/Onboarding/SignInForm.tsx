@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     fontSize: theme.spacing(3.6),
     marginTop: theme.spacing(0),
-    fontWeight: theme.typography.fontWeightBold,
+    // fontWeight: theme.typography.fontWeightBold,
+    fontWeight: 900,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.4),
     },
@@ -96,7 +97,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     alignSelf: 'center',
     borderRadius: '20px',
-    fontWeight: theme.typography.fontWeightMedium,
+    // fontWeight: theme.typography.fontWeightMedium,
+    fontWeight: 600,
     fontSize: theme.spacing(2.4),
     padding: theme.spacing(0.5, 0.5),
     [theme.breakpoints.down('sm')]: {

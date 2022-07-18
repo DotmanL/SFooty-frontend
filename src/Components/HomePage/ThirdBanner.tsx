@@ -149,7 +149,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0.5, 0.5),
     width: 'auto',
     color: theme.palette.background.default,
-    fontWeight: theme.typography.fontWeightMedium,
+    // fontWeight: theme.typography.fontWeightMedium,
+    fontWeight: 600,
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(1, 1.5),
       borderRadius: theme.spacing(1.2),
@@ -158,8 +159,8 @@ const useStyles = makeStyles((theme) => ({
   buttonText: {
     fontSize: theme.spacing(2.4),
     color: 'white',
-    fontWeight: theme.typography.fontWeightLight,
-
+    // fontWeight: theme.typography.fontWeightLight,
+    fontWeight: 300,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(1.6),
     },

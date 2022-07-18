@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useCallback, useState } from 'react';
 // import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -17,6 +18,7 @@ import { Link } from '../Shared/Components/Link';
 // import FootballApi from '../api/FootballService';
 // import { Teams } from '../api/types';
 import { data } from '../api/englishclubs';
+import Spinner from '../Shared/Components/Spinner';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -59,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     fontSize: theme.spacing(3.6),
     marginTop: theme.spacing(0),
-    fontWeight: theme.typography.fontWeightBold,
+    // fontWeight: theme.typography.fontWeightBold,
+    fontWeight: 900,
     [theme.breakpoints.down('sm')]: {
       fontSize: theme.spacing(2.4),
     },
@@ -100,7 +103,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     alignSelf: 'center',
     borderRadius: '20px',
-    fontWeight: theme.typography.fontWeightMedium,
+    // fontWeight: theme.typography.fontWeightMedium,
+    fontWeight: 600,
     fontSize: theme.spacing(2.4),
     padding: theme.spacing(0.5, 0.5),
     [theme.breakpoints.down('sm')]: {
@@ -121,10 +125,10 @@ const validationSchema = yup.object().shape({
     .min(8, 'Password should be of minimum 8 characters length')
     .required('Password is required'),
   club: yup.string().required('Club selection is required'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'The passwords you entered do not match')
-    .required(''),
+  // confirmPassword: yup
+  //   .string()
+  //   .oneOf([yup.ref('password'), null], 'The passwords you entered do not match')
+  //   .required(''),
 });
 
 export interface SignUpFormData {
@@ -132,28 +136,43 @@ export interface SignUpFormData {
   email: string;
   password: string;
   club: string;
-  confirmPassword: string;
+  // confirmPassword: string;
 }
 
 interface SignUpFormProps {
-  // visible: boolean;
+  visible?: boolean;
   isSubmitting?: boolean;
-  // onFormSubmitted: (data: SignUpFormData) => any;
+  onFormSubmitted: (formData: SignUpFormData) => void;
 }
 
-export const SignUpForm: React.FC<SignUpFormProps> = () => {
+export const SignUpForm: React.FC<SignUpFormProps> = ({
+  visible,
+  isSubmitting,
+  onFormSubmitted,
+}) => {
   const initialValues = {
     userName: '',
     email: '',
     password: '',
     club: '',
-    confirmPassword: '',
+    // confirmPassword: '',
   };
 
-  const handleSubmit = (values: SignUpFormData, formik: FormikHelpers<SignUpFormData>) => {
-    formik.setSubmitting(false);
-    // prevent fields from disabling
-  };
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
+
+  // const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setConfirmPassword(e.target.value);
+  // };
+
+  const handleSubmit = useCallback(
+    (values: SignUpFormData, formik: FormikHelpers<SignUpFormData>) => {
+      console.log(values);
+      onFormSubmitted(values);
+      formik.setSubmitting(false); // prevent fields from disabling
+    },
+    [onFormSubmitted]
+  );
+
   const classes = useStyles();
   // const { isLoading, error, data } =
   // useQuery<Teams[], Error>('getTeams', async () => FootballApi.findAll());
@@ -165,9 +184,9 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
   //   return <p>{(error as Error)?.message}</p>;
   // }
 
-  // if (!visible) {
-  //   return null;
-  // }
+  if (!visible) {
+    return null;
+  }
   return (
     <>
       <Formik
@@ -176,7 +195,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
         validationSchema={validationSchema}
       >
         {({
-          errors, touched, isSubmitting, values, handleChange,
+          errors, touched, values, handleChange,
         }): React.ReactNode => (
           <Container className={classes.main}>
             <Paper elevation={4} className={classes.formMain}>
@@ -225,7 +244,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   error={touched.password && Boolean(errors.password)}
                   helperText={touched.password && errors.password}
                 />
-                <Field
+                {/* <Field
                   className={classes.formControl}
                   variant="outlined"
                   id="confirmPassword"
@@ -233,13 +252,12 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                   type="password"
                   autoComplete="on"
                   label="Confirm Password"
-                  placeholder="Password"
+                  placeholder="Confirm Password"
                   component={InputTextField}
-                  value={values.confirmPassword}
-                  onChange={handleChange}
-                  error={touched.confirmPassword && Boolean(errors.confirmPassword)}
-                  helperText={touched.confirmPassword && errors.confirmPassword}
-                />
+                  value={confirmPassword}
+                  onChange={handleConfirmPassword}
+                  error={values.password !== confirmPassword}
+                /> */}
                 <Field
                   className={classes.formControl}
                   variant="outlined"
@@ -310,6 +328,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = () => {
                 >
                   Sign Up
                 </Button>
+                {isSubmitting && <Spinner />}
               </Form>
             </Paper>
           </Container>
