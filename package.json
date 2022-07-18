@@ -33,9 +33,6 @@
     "web-vitals": "^1.1.1",
     "yup": "^0.32.9"
   },
-  "resolutions": {
-    "react-error-overlay": "6.0.9"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -43,12 +40,6 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
