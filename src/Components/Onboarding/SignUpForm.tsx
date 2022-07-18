@@ -166,7 +166,6 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
 
   const handleSubmit = useCallback(
     (values: SignUpFormData, formik: FormikHelpers<SignUpFormData>) => {
-      console.log(values);
       onFormSubmitted(values);
       formik.setSubmitting(false); // prevent fields from disabling
     },
