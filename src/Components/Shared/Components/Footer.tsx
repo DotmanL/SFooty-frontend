@@ -1,8 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
+import Grid from '@mui/material/Grid';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography } from '@mui/material';
+import Container from '@mui/material/Container';
 import { Link } from './Link';
 import Spiral from './assets/spiralfooter.svg';
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(10, 0, 0, 6),
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(3, 0, 2, 2),
       flexDirection: 'row',
       bottom: 0,
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     color: 'white',
     width: '100%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
       bottom: 0,
       left: 0,
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(4.8),
     justifySelf: 'center',
     marginTop: theme.spacing(5),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(0),
       fontSize: theme.spacing(3.2),
     },
@@ -59,21 +59,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.spacing(3.2),
     fontWeight: 600,
     // fontWeight: theme.typography.fontWeightMedium,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(2.4),
     },
   },
   otherColumns: {
     display: 'flex',
     flexDirection: 'column',
-    [theme.breakpoints.down('sm')]: {},
+    [theme.breakpoints.down('md')]: {},
   },
   links: {
     margin: theme.spacing(1, 0, 1, 0),
     fontWeight: 500,
     fontSize: theme.spacing(2.8),
     color: theme.palette.background.default,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(2.0),
     },
   },
@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   spiralImage: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: theme.spacing(10),
       height: theme.spacing(15),
     },

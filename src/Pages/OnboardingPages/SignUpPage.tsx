@@ -1,27 +1,27 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
 import { Helmet } from 'react-helmet';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import makeStyles from '@mui/styles/makeStyles';
+import Container from '@mui/material/Container';
 import { toast } from 'react-toastify';
-import { SignUpForm, SignUpFormData } from '../../Components/Onboarding/SignUpForm';
-import { NavBar } from '../../Components/Shared/Components/NavBar';
-import Footer from '../../Components/Shared/Components/Footer';
+import { SignUpForm, SignUpFormData } from '../../components/onboarding/SignUpForm';
+import { NavBar } from '../../components/shared/components/NavBar';
+import Footer from '../../components/shared/components/Footer';
 import ScatteredFields from './assets/scattered-forcefields.svg';
-import users from '../../Components/api/users';
+import users from '../../components/api/users';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(0, 0, 0, 0),
     backgroundImage: `url(${ScatteredFields})`,
     marginTop: theme.spacing(3),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       backgroundSize: 'contain',
     },
   },
   signUpContainer: {
     marginTop: theme.spacing(0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(10),
     },
   },

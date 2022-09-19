@@ -1,11 +1,14 @@
+
+
 import React, { useState, useCallback } from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import MuiTextField from '@material-ui/core/TextField';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import { fieldToTextField, TextFieldProps } from 'formik-material-ui';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import MuiTextField from '@mui/material/TextField';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { fieldToTextField, TextFieldProps } from 'formik-mui';
 
 const useStyles = makeStyles(() => ({
   styling: {
@@ -49,7 +52,7 @@ export const PasswordTextField: React.FC<InputProps> = ({ className, ...props })
               aria-label="toggle password visibility"
               onClick={handleClickShowPassword}
               onMouseDown={handleMouseDownPassword}
-            >
+              size="large">
               {values.showPassword ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>

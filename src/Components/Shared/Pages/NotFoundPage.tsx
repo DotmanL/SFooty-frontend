@@ -1,16 +1,16 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-// import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-// import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+// import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+// import { CSSProperties } from '@mui/material/styles/withStyles';
 import { Helmet } from 'react-helmet';
 import ErrImage from './assets/2456051.jpg';
 // import ErrText from './assets/404.png';
-import { Link } from '../Components/Link';
-import { NavBar } from '../Components/NavBar';
-import Footer from '../Components/Footer';
+import { Link } from '../components/Link';
+import { NavBar } from '../components/NavBar';
+import Footer from '../components/Footer';
 
 const useStyles = makeStyles((theme) => ({
   contentOffset: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(15),
       minHeight: '100vh',
     },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(-14),
     width: '700px',
     height: '700px',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
       height: '50%',
       marginTop: theme.spacing(-22),

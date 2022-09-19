@@ -1,14 +1,13 @@
 import React from 'react';
-// import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import makeStyles from '@mui/styles/makeStyles';
+import Container from '@mui/material/Container';
 import { Helmet } from 'react-helmet';
 import Spiral from './assets/spiralbg.svg';
-import TopBanner from '../../Components/HomePage/TopBanner';
-import SecondBanner from '../../Components/HomePage/SecondBanner';
-import ThirdBanner from '../../Components/HomePage/ThirdBanner';
-import Footer from '../../Components/Shared/Components/Footer';
-import { NavBar } from '../../Components/Shared/Components/NavBar';
+import TopBanner from '../../components/homePage/TopBanner';
+import SecondBanner from '../../components/homePage/SecondBanner';
+import ThirdBanner from '../../components/homePage/ThirdBanner';
+import Footer from '../../components/shared/components/Footer';
+import { NavBar } from '../../components/shared/components/NavBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       height: '100%',
       width: '100%',
       backgroundSize: 'contain',

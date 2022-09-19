@@ -1,15 +1,15 @@
 import React from 'react';
-import {
-  Theme, withStyles, makeStyles, useTheme,
-} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-// import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Grid from '@material-ui/core/Grid';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { Theme, useTheme } from '@mui/material/styles';
+import withStyles from '@mui/styles/withStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+// import MuiDialogTitle from '@mui/material/DialogTitle';
+import MuiDialogContent from '@mui/material/DialogContent';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Grid from '@mui/material/Grid';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     left: theme.spacing(1),
     top: theme.spacing(0),
     color: theme.palette.grey[500],
-    [theme.breakpoints.down('sm')]: {},
+    [theme.breakpoints.down('md')]: {},
   },
   button: {
     color: theme.palette.background.default,
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.primary.main,
       opacity: 0.9,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(1.4),
       padding: theme.spacing(0.5, 0.8),
     },
@@ -60,8 +60,8 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('lg'));
-  const tablet = useMediaQuery(theme.breakpoints.down('md'));
-  const mobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const tablet = useMediaQuery(theme.breakpoints.down('lg'));
+  const mobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -70,63 +70,73 @@ export const CustomizedDialogs: React.FC<CustomizedDialogsProps> = ({ component,
     setOpen(false);
   };
 
-  return (
-    <>
-      <Button
-        className={classes.button}
-        variant="outlined"
-        color="primary"
-        onClick={handleClickOpen}
+  return <>
+    <Button
+      className={classes.button}
+      variant="outlined"
+      color="primary"
+      onClick={handleClickOpen}
+    >
+      {buttonTitle}
+    </Button>
+    {desktop && (
+      <Dialog
+        fullScreen
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+
       >
-        {buttonTitle}
-      </Button>
-      {desktop && (
-        <Dialog
-          fullScreen
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
+        <DialogContent style={{ overflow: 'scroll' }}>
+          <IconButton
+            aria-label="close"
+            className={classes.closeButton}
+            onClick={handleClose}
+            size="large">
+            <CloseIcon />
+          </IconButton>
+          <Grid>{component}</Grid>
+        </DialogContent>
+      </Dialog>
+    )}
+    {tablet && (
+      <Dialog
+        fullScreen
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
 
-        >
-          <DialogContent style={{ overflow: 'scroll' }}>
-            <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
-              <CloseIcon />
-            </IconButton>
-            <Grid>{component}</Grid>
-          </DialogContent>
-        </Dialog>
-      )}
-      {tablet && (
-        <Dialog
-          fullScreen
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-
-        >
-          <DialogContent style={{ overflow: 'scroll' }}>
-            <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
-              <CloseIcon />
-            </IconButton>
-            <Grid>{component}</Grid>
-          </DialogContent>
-        </Dialog>
-      )}
-      {mobile && (
-        <Dialog
-          fullScreen
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-        >
-          <DialogContent style={{ overflow: 'scroll' }}>
-            <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose}>
-              <CloseIcon />
-            </IconButton>
-            <Grid>{component}</Grid>
-          </DialogContent>
-        </Dialog>
-      )}
-    </>
-  );
+      >
+        <DialogContent style={{ overflow: 'scroll' }}>
+          <IconButton
+            aria-label="close"
+            className={classes.closeButton}
+            onClick={handleClose}
+            size="large">
+            <CloseIcon />
+          </IconButton>
+          <Grid>{component}</Grid>
+        </DialogContent>
+      </Dialog>
+    )}
+    {mobile && (
+      <Dialog
+        fullScreen
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+      >
+        <DialogContent style={{ overflow: 'scroll' }}>
+          <IconButton
+            aria-label="close"
+            className={classes.closeButton}
+            onClick={handleClose}
+            size="large">
+            <CloseIcon />
+          </IconButton>
+          <Grid>{component}</Grid>
+        </DialogContent>
+      </Dialog>
+    )}
+  </>;
 };

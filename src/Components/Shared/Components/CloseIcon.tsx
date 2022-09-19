@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import Grid from '@material-ui/core/Grid';
+import makeStyles from '@mui/styles/makeStyles';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Grid from '@mui/material/Grid';
 
 const useStyles = makeStyles((theme) => ({
   closeButton: {
@@ -28,7 +28,11 @@ export const CloseIconComponent: React.FC<Props> = ({ onClick }) => {
 
   return (
     <Grid className={classes.dialogClose}>
-      <IconButton {...onClick} aria-label="close" className={classes.closeButton}>
+      <IconButton
+        {...onClick}
+        aria-label="close"
+        className={classes.closeButton}
+        size="large">
         <CloseIcon />
       </IconButton>
     </Grid>

@@ -1,26 +1,39 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router';
 import { Router } from 'react-router-dom';
-import { createTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+  Theme,
+  StyledEngineProvider,
+  adaptV4Theme,
+} from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer, Zoom } from 'react-toastify';
 import { history } from './history';
-import Spinner from './Components/Shared/Components/Spinner';
+import Spinner from './components/shared/components/Spinner';
 import 'react-toastify/dist/ReactToastify.css';
 
-const HomePage = lazy(() => import('./Pages/HomePage/HomePage'));
-const SignUpPage = lazy(() => import('./Pages/OnboardingPages/SignUpPage'));
-const SignInPage = lazy(() => import('./Pages/OnboardingPages/SignInPage'));
-const AboutUsPage = lazy(() => import('./Pages/AboutUsPage/AboutUsPage'));
-const NotFoundPage = lazy(() => import('./Components/Shared/Pages/NotFoundPage'));
+
+declare module '@mui/styles/defaultTheme' {
+  interface DefaultTheme extends Theme {}
+}
+
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const SignUpPage = lazy(() => import('./pages/OnboardingPages/SignUpPage'));
+const SignInPage = lazy(() => import('./pages/OnboardingPages/SignInPage'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage/AboutUsPage'));
+const NotFoundPage = lazy(() => import('./components/shared/pages/NotFoundPage'));
 
 const styles = {
   marginTop: '80px',
 };
 
 const theme = responsiveFontSizes(
-  createTheme({
+  createTheme(adaptV4Theme({
     palette: {
       background: {
         default: '#ffffff',
@@ -32,7 +45,7 @@ const theme = responsiveFontSizes(
         main: '#1C819E',
       },
     },
-    spacing: (value) => `${value * 10}px`,
+    spacing: (value: number) => `${value * 10}px`,
     typography: {
       fontFamily: [
         'Montserrat',
@@ -56,27 +69,29 @@ const theme = responsiveFontSizes(
         },
       },
     },
-  })
+  }))
 );
 const queryClient = new QueryClient();
 
 const App: React.FC = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <ToastContainer style={styles} closeOnClick transition={Zoom} />
-      <Suspense fallback={<Spinner />}>
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/aboutus" component={AboutUsPage} />
-            <Route exact path="/signup" component={SignUpPage} />
-            <Route exact path="/signin" component={SignInPage} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Router>
-      </Suspense>
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <ToastContainer style={styles} closeOnClick transition={Zoom} />
+        <Suspense fallback={<Spinner />}>
+          <Router history={history}>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/aboutus" component={AboutUsPage} />
+              <Route exact path="/signup" component={SignUpPage} />
+              <Route exact path="/signin" component={SignInPage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </Router>
+        </Suspense>
+      </ThemeProvider>
+    </StyledEngineProvider>
   </QueryClientProvider>
 );
 

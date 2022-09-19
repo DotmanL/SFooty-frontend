@@ -1,11 +1,10 @@
 import React from 'react';
-// import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import makeStyles from '@mui/styles/makeStyles';
+import Container from '@mui/material/Container';
 import { Helmet } from 'react-helmet';
-import { SignInForm } from '../../Components/Onboarding/SignInForm';
-import { NavBar } from '../../Components/Shared/Components/NavBar';
-import Footer from '../../Components/Shared/Components/Footer';
+import { SignInForm } from '../../components/onboarding/SignInForm';
+import { NavBar } from '../../components/shared/components/NavBar';
+import Footer from '../../components/shared/components/Footer';
 import ScatteredFields from './assets/scattered-forcefields.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 0, 0, 0),
     backgroundImage: `url(${ScatteredFields})`,
     marginTop: theme.spacing(3),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       backgroundSize: 'contain',
     },
   },

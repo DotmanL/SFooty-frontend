@@ -1,17 +1,18 @@
 import React from 'react';
-// import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import makeStyles from '@mui/styles/makeStyles';
+import Typography from '@mui/material/Typography';
 import {
   Formik, Form, Field, FormikHelpers,
 } from 'formik';
 import * as yup from 'yup';
-import { Container } from '@material-ui/core';
-import { InputTextField } from '../Shared/Components/InputTextField';
-import { Link } from '../Shared/Components/Link';
+import { Container } from '@mui/material';
+import { InputTextField } from '../shared/components/InputTextField';
+import TextField from '@mui/material/TextField';
+import { Link } from '../shared/components/Link';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100vh',
     padding: theme.spacing(0),
     marginTop: theme.spacing(0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       margin: theme.spacing(1.5, 0, 2, 0),
       display: 'flex',
       padding: theme.spacing(0, 2),
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
     backgroundColor: 'white',
     marginTop: '0px',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '98%',
       padding: theme.spacing(4, 4),
       border: '0.5px solid',
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(0),
     // fontWeight: theme.typography.fontWeightBold,
     fontWeight: 900,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(2.4),
     },
   },
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     // background: 'yellow',
     padding: theme.spacing(0, 0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(1),
     },
   },
@@ -79,14 +80,14 @@ const useStyles = makeStyles((theme) => ({
   terms: {
     fontSize: theme.spacing(2.0),
     marginTop: theme.spacing(1.5),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(1.6),
     },
   },
   links: {
     fontSize: theme.spacing(2.0),
     color: theme.palette.primary.main,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(1.6),
     },
   },
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     fontSize: theme.spacing(2.4),
     padding: theme.spacing(0.5, 0.5),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: theme.spacing(2.0),
       marginTop: theme.spacing(1.5),
       padding: theme.spacing(2, 2),
@@ -181,7 +182,7 @@ export const SignInForm: React.FC<SignInFormProps> = () => {
                   type="password"
                   label="Password"
                   placeholder="Password"
-                  component={InputTextField}
+                  component={TextField}
                   value={values.password}
                   onChange={handleChange}
                   error={touched.password && Boolean(errors.password)}

@@ -1,21 +1,24 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { TextField, TextFieldProps } from 'formik-material-ui';
-// import PasswordField from 'material-ui-password-field';
+import makeStyles from '@mui/styles/makeStyles';
+import withStyles from '@mui/styles/withStyles';
+import { TextField, TextFieldProps } from 'formik-mui';
 import { PasswordTextField } from './PasswordTextField';
 // @ts-ignore
 
 const useStyles = makeStyles(() => ({
   styling: {
     width: '100%',
+
   },
-  input: {},
+  input: {
+  },
 }));
 
 const CssTextField = withStyles({
   root: {
     '& .MuiOutlinedInput-root': {
       background: '#EEF2F6',
+      // marginTop: '30px',
       // color: '#27AE60',
     },
   },
@@ -34,6 +37,7 @@ export const InputTextField: React.FC<InputProps> = ({ className, ...props }) =>
     ...props,
     className: ` ${classes.input}`,
   };
+
 
   if (props.type === 'password') {
     return <PasswordTextField {...passwordFieldProps} />;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import makeStyles from '@mui/styles/makeStyles';
 import GoalPost from './assets/goalPost.png';
 import Football from './assets/balll.png';
 
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     // border: '2px solid red',
     padding: theme.spacing(3, 1),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
       alignItems: 'center',
       marginTop: theme.spacing(-2),
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: theme.spacing(5),
     color: theme.palette.primary.main,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(0),
       fontWeight: 600,
       fontSize: theme.spacing(1.8),
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     width: '40%',
     marginTop: theme.spacing(2),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontWeight: 500,
       lineHeight: '20px',
       width: '70%',
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     marginTop: theme.spacing(-5),
     padding: theme.spacing(0, 0, 0, 0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(-2),
     },
   },
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     padding: theme.spacing(0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(-10),
     },
   },
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(-2),
     width: '200px',
     height: '200px',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(7),
       marginLeft: theme.spacing(-1.6),
       width: '90px',
@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     marginTop: theme.spacing(-9),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(-11),
     },
   },
@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     width: '250px',
     height: '195px',
     marginTop: theme.spacing(12),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '80px',
       height: '55px',
     },

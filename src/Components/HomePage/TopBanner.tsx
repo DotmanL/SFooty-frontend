@@ -1,16 +1,15 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-// import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import makeStyles from '@mui/styles/makeStyles';
 // import { Link } from '../Shared/Components/Link';
 import { toast } from 'react-toastify';
 import PL from './assets/pl.png';
 import LaLiga from './assets/laliga2.png';
 import BundesLiga from './assets/bliga.png';
 import Ligue1 from './assets/ligue1.svg';
-import { CustomizedDialogs } from '../Shared/Components/ModalComponent';
-import { SignUpForm, SignUpFormData } from '../Onboarding/SignUpForm';
+import { CustomizedDialogs } from '../shared/components/ModalComponent';
+import { SignUpForm, SignUpFormData } from '../onboarding/SignUpForm';
 import users from '../api/users';
 // import SerieA from './assets/seriea.png';
 
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginTop: theme.spacing(3),
     padding: theme.spacing(2, 0, 2, 0),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(2),
       display: 'flex',
       flexDirection: 'column',
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(2, 7),
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: theme.spacing(2.5),
       padding: theme.spacing(2, 3),
     },
@@ -48,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     width: '120px',
     height: '120px',
     marginTop: theme.spacing(1.5),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '50px',
       height: '50px',
       marginTop: theme.spacing(0.5),
@@ -59,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     width: '120px',
     height: '160px',
     marginTop: theme.spacing(-1),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '40px',
       height: '60px',
       marginTop: theme.spacing(-2.4),
@@ -72,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
     height: 'auto',
     marginTop: theme.spacing(-5),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -88,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 750,
     textAlign: 'center',
     color: theme.palette.primary.main,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontWeight: 600,
       width: 'auto',
       fontSize: theme.spacing(1.6),
@@ -103,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: 'center',
     width: '50%',
     marginTop: theme.spacing(1),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '60%',
       fontWeight: 500,
       lineHeight: '20px',
@@ -124,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.primary.main,
       opacity: 0.9,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(0.8, 1),
       fontSize: theme.spacing(1.2),
     },
@@ -139,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
     // background: 'red',
     justifyContent: 'space-between',
     padding: theme.spacing(0, 18),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       padding: theme.spacing(2, 2),
     },
   },
@@ -148,7 +147,7 @@ const useStyles = makeStyles((theme) => ({
     width: '120px',
     height: '120px',
     marginTop: theme.spacing(6),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '50px',
       height: '50px',
       marginTop: theme.spacing(3.5),
@@ -168,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     width: '150px',
     height: '150px',
     marginTop: theme.spacing(-1),
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '65px',
       height: '55px',
       marginTop: theme.spacing(2.5),
